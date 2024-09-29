@@ -10,4 +10,8 @@ class HomeController extends Controller
     public function index(){
         return view('murid.index');
     }
+
+    public function tugas(){
+        return view('murid.tugas');
+    }
 }
