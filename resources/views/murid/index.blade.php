@@ -3,7 +3,7 @@
 @section('halaman', 'Dashboard')
 @section('slash-page', 'Dashboard')
 
-@section('content')
+@section('content-murid')
     <div class="row mb-3">
         <!-- Earnings (Monthly) Card Example -->
         <div class="col-xl-3 col-md-6 mb-4">

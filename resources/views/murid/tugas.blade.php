@@ -3,6 +3,6 @@
 @section('halaman', 'Tugas')
 @section('slash-page', 'Tugas')
 
-@section('content')
-    <h1>hello</h1>
+@section('content-murid')
+    <h1 style="height: 1200px">hello</h1>
 @endsection

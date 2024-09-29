@@ -1,23 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('layouts.main')
 
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link href="{{ asset('sistem-mulmet/assets/images/logoSekolah.png') }}" rel="icon">
-    <title>PH SmartStudy</title>
-    <link href="{{ asset('sistem-mulmet/template/RuangAdmin/vendor/fontawesome-free/css/all.min.css') }}"
-        rel="stylesheet" type="text/css">
-    <link href="{{ asset('sistem-mulmet/template/RuangAdmin/vendor/bootstrap/css/bootstrap.css') }}" rel="stylesheet"
-        type="text/css">
-    <link href="{{ asset('sistem-mulmet/template/RuangAdmin/css/ruang-admin.css') }}" rel="stylesheet">
-    <link rel="stylesheet" href="{{ asset('sistem-mulmet/css/style.css') }}">
-</head>
-
-<body id="page-top">
+@section('content')
     <div id="wrapper">
         <!-- Sidebar -->
         <ul class="navbar-nav sidebar sidebar-light accordion" id="accordionSidebar">
@@ -40,8 +23,8 @@
             </li>
             <hr class="sidebar-divider mb-1">
             <!-- <div class="sidebar-heading">
-                Features
-            </div> -->
+                                                                            Features
+                                                                        </div> -->
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseBootstrap"
                     aria-expanded="true" aria-controls="collapseBootstrap">
@@ -178,29 +161,10 @@
                             <li class="breadcrumb-item active" aria-current="page">@yield('slash-page')</li>
                         </ol>
                     </div>
-                    @yield('content')
+                    @yield('content-murid')
                 </div>
-                <!-- Footer -->
-                <footer class="sticky-footer bg-white">
-                    <div class="container my-auto">
-                        <div class="copyright text-center my-auto">
-                            <span>copyright &copy;
-                                <script>
-                                    document.write(new Date().getFullYear());
-                                </script>
-                                {{-- <b><a href="https://indrijunanda.gitlab.io/" target="_blank">indrijunanda</a></b> --}}
-                            </span>
-                        </div>
-                    </div>
-                </footer>
-                <!-- Footer -->
-
-                <script src="{{ asset('sistem-mulmet/template/RuangAdmin/vendor/jquery/jquery.min.js') }}"></script>
-                <script src="{{ asset('sistem-mulmet/template/RuangAdmin/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-                <script src="{{ asset('sistem-mulmet/template/RuangAdmin/vendor/jquery-easing/jquery.easing.min.js') }}"></script>
-                <script src="{{ asset('sistem-mulmet/template/RuangAdmin/js/ruang-admin.min.js') }}"></script>
-                <script src="{{ asset('sistem-mulmet/template/RuangAdmin/vendor/chart.js/Chart.min.js') }}"></script>
-                <script src="{{ asset('sistem-mulmet/template/RuangAdmin/js/demo/chart-area-demo.js') }}"></script>
-</body>
-
-</html>
+            </div>
+            {{-- 
+                penutup div ada dibawah footer pada layouts/main (layouts paling luar)
+                --}}
+        @endsection

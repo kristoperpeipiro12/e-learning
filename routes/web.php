@@ -26,12 +26,12 @@ Route::get('/', [LoginController::class, 'login'])->name('login');
 
 // Route Admin
 Route::prefix('admin')->group(function () {
-    Route::get('/admin', [AdminHomeController::class, 'index'])->name('admin');
+    Route::get('/', [AdminHomeController::class, 'index'])->name('admin');
 });
 
 // Route Guru
 Route::prefix('guru')->group(function () {
-    Route::get('/guru', [GuruHomeController::class, 'index'])->name('guru');
+    Route::get('/', [GuruHomeController::class, 'index'])->name('guru');
 });
 
 // Murid Route
