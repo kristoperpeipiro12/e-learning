@@ -1,120 +1,92 @@
-@extends('murid.layouts.main')
+<!DOCTYPE html>
+<html lang="en">
 
-@section('halaman', 'Dashboard')
-@section('slash-page', 'Dashboard')
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="{{asset('UI_QUIZ/assets/images/logoSekolah.png')}}')}}" />
+  <title>SKPH Quiz</title>
+  <!-- <link rel="stylesheet" href="{{asset('UI_QUIZ/bootstrap/css/bootstrap.min.css')}}" /> -->
+  <link rel="stylesheet" href="{{asset('UI_QUIZ/assets/icons/bootstrap-icons/font/bootstrap-icons.min.css')}}" />
+  <link rel="stylesheet" href="{{asset('UI_QUIZ/css/style.css')}}" />
+  <link rel="stylesheet" href="{{asset('UI_QUIZ/fontawesome-6.6.0/css/all.min.css')}}">
+</head>
 
-@section('content-murid')
-    <div class="row mb-3">
-        <!-- Earnings (Monthly) Card Example -->
-        <div class="col-xl-3 col-md-6 mb-4">
-            <div class="card h-100">
-                <div class="card-body">
-                    <div class="row align-items-center">
-                        <div class="col mr-2">
-                            <div class="text-xs font-weight-bold text-uppercase mb-1">Jumlah Mapel</div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800">6</div>
-                            <div class="mt-2 mb-0 text-muted text-xs">
-                                <!-- <span class="text-success mr-2"><i class="fa fa-arrow-up"></i> 3.48%</span> -->
-                                <span>Tahun Ajar 2024/2025</span>
-                            </div>
-                        </div>
-                        <div class="col-auto">
-                            <!-- <i class="fas fa-calendar fa-2x text-primary"></i> -->
-                            <i class="fa fa-window-maximize fa-2x text-primary"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Earnings (Annual) Card Example -->
-        <div class="col-xl-3 col-md-6 mb-4">
-            <div class="card h-100">
-                <div class="card-body">
-                    <div class="row no-gutters align-items-center">
-                        <div class="col mr-2">
-                            <div class="text-xs font-weight-bold text-uppercase mb-1">Tugas Belum
-                                Selesai</div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800">7</div>
-                            <div class="mt-2 mb-0 text-muted text-xs">
-                                <!-- <span class="text-success mr-2"><i class="fas fa-arrow-up"></i> 12%</span> -->
-                                <span>Tahun Ajar 2024/2025</span>
-                            </div>
-                        </div>
-                        <div class="col-auto">
-                            <!-- <i class="fas fa-shopping-cart fa-2x text-success"></i> -->
-                            <i class="fa fa-list fa-2x text-success"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- New User Card Example -->
-        <div class="col-xl-3 col-md-6 mb-4">
-            <div class="card h-100">
-                <div class="card-body">
-                    <div class="row no-gutters align-items-center">
-                        <div class="col mr-2">
-                            <div class="text-xs font-weight-bold text-uppercase mb-1">Jumlah Modul</div>
-                            <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">22</div>
-                            <div class="mt-2 mb-0 text-muted text-xs">
-                                <!-- <span class="text-success mr-2"><i class="fas fa-arrow-up"></i> 20.4%</span> -->
-                                <span>Tahun Ajar 2024/2025</span>
-                            </div>
-                        </div>
-                        <div class="col-auto">
-                            <i class="fa fa-book fa-2x text-info"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Pending Requests Card Example -->
-        <div class="col-xl-3 col-md-6 mb-4">
-            <div class="card h-100">
-                <div class="card-body">
-                    <div class="row no-gutters align-items-center">
-                        <div class="col mr-2">
-                            <div class="text-xs font-weight-bold text-uppercase mb-1">Jumlah Video</div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
-                            <div class="mt-2 mb-0 text-muted text-xs">
-                                <!-- <span class="text-danger mr-2"><i class="fas fa-arrow-down"></i> 1.10%</span> -->
-                                <span>Tahun Ajar 2024/2025</span>
-                            </div>
-                        </div>
-                        <div class="col-auto">
-                            <i class="fa fa-play fa-2x text-warning"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+<body>
+  <div class="section-wrap">
+    <section class="navbar-custom">
+      <div class="logo-sekolah-wrap">
+        <a href="#" class="logo-sekolah">
+          <img class="img-logo-nav" src="{{asset('UI_QUIZ/assets/images/logoSekolah.png')}}" alt="logo-sekolah" />
+          <span>SKPH Quiz</span>
+        </a>
+      </div>
+      <!-- <i class="bi bi-list menu-navbar"></i> -->
+      <i id="pause-menu" class="fa-solid fa-bars menu-navbar"></i>
+    </section>
 
-        <!-- Area Chart -->
-        <div class="w-100">
-            <div class="card mb-4">
-                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                    <h6 class="m-0 font-weight-bold text-primary">Rata-Rata Nilai Tugas</h6>
-                    <div class="dropdown no-arrow">
-                        <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
-                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
-                            aria-labelledby="dropdownMenuLink">
-                            <div class="dropdown-header">Dropdown Header:</div>
-                            <a class="dropdown-item" href="#">Action</a>
-                            <a class="dropdown-item" href="#">Another action</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Something else here</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="card-body">
-                    <div class="chart-area">
-                        <canvas id="myAreaChart"></canvas>
-                    </div>
-                </div>
-            </div>
+    <!-- main content -->
+    <section id="main-content-custom" class="main-content-custom">
+      <div class="play-menu-container">
+        <ul class="play-menu">
+          <li><a href="#" id="btn-play-quiz" class="fs-icon-custom1"><i class="fa-regular fa-circle-play"></i>Play</a>
+          </li>
+          <li><a href="#" id="btn-leave-quiz" class="fs-icon-custom1"><i class="fa-solid fa-door-closed"></i><i
+                class="fa-solid fa-door-open"></i>Keluar</a>
+          </li>
+        </ul>
+      </div>
+      <div id="bg-main-content" class="bg-main-content zoom-in"></div>
+      <!-- area nickname -->
+      <div id="nickname-container" class="nickname-container fade-in">
+        <span>Masukkan Nama Anda</span>
+        <input type="text" name="" id="" class="input-nickname fade-in">
+        <button class="btn-nm btn-nm-mulai" role="button">Mulai</button>
+        <button class="btn-nm btn-nm-batal" type="reset">Batal</button>
+      </div>
+      <!-- ...... -->
+    </section>
+    <section class="footer-custom"></section>
+  </div>
+
+  <!-- Pop Up Pause Menu -->
+  <div class="pop-up-container" id="pop-up-container">
+    <div class="black-area-pause" id="black-area-pause"></div>
+    <div class="main-menu-custom" id="pop-up-menu">
+      <video autoplay muted loop id="bg-pause">
+        <source id="pause-video" src="{{asset('UI_QUIZ/assets/video/bg-pause-menu-murid.mp4')}}" type="video/mp4" />
+      </video>
+      <div class="menu-container">
+        <div class="close-main-menu" id="x-pause-menu">
+          <i class="bi bi-x-lg"></i>
         </div>
+        <span class="menu-header">Pause</span>
+        <ul>
+          <a href="#" id="lanjut-menu">
+            <li>Lanjut</li>
+          </a>
+          <a href="#" id="pengaturan-menu">
+            <li>Pengaturan</li>
+          </a>
+          <a href="#" id="keluar-menu">
+            <li>Keluar</li>
+          </a>
+        </ul>
+      </div>
     </div>
-@endsection
+  </div>
+
+  <!-- Background (Video) -->
+  <video autoplay muted loop id="bg-halloween">
+    <source id="bg-video" src="{{asset('UI_QUIZ/assets/video/bg-main-murid.mp4')}}" type="video/mp4" />
+  </video>
+
+  <audio autoplay loop muted>
+    <source src="{{asset('UI_QUIZ/assets/audio/doodle.mp3')}}" type="audio/mpeg" />
+    <p>Audio tidak disupport browser</p>
+  </audio>
+
+  <script src="{{asset('UI_QUIZ/js/script.js')}}"></script>
+</body>
+
+</html>

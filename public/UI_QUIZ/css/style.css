@@ -1,0 +1,430 @@
+@import url("https://fonts.googleapis.com/css2?family=DynaPuff:wght@400..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Background Video Laman Utama */
+
+#bg-halloween {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -100;
+}
+
+#bg-video {
+  position: fixed;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  color: #f1f1f1;
+  width: 100px;
+  padding: 20px;
+}
+
+.fs-icon-custom1 {
+  font-size: 38px;
+}
+
+/* ............... */
+
+body {
+  font-family: "DynaPuff", system-ui;
+  /* background-color: blue; */
+  display: flex;
+  justify-content: center;
+}
+
+.section-wrap {
+  display: flex;
+  flex-direction: column;
+  max-width: 1420px;
+  height: 100vh;
+  width: 100%;
+  /* background-color: aqua; */
+}
+
+.section-wrap .navbar-custom {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 30px;
+  width: 100%;
+  /* background-color: antiquewhite; */
+}
+
+.navbar-custom .logo-sekolah {
+  display: flex;
+  align-items: center;
+  padding-top: 12px;
+  width: 15%;
+  height: 100%;
+  max-width: 200px;
+  text-decoration: none;
+  /* background-color: red; */
+}
+
+.navbar-custom .menu-navbar {
+  align-self: center;
+  font-size: 38px;
+  font-weight: bold;
+  color: #cc7b7a;
+  border-radius: 50%;
+  padding: 10px 13px;
+  background-color: transparent;
+
+  transition: ease-in 0.2s;
+  -webkit-text-stroke: 1px white;
+}
+
+.navbar-custom .menu-navbar:hover {
+  cursor: pointer;
+  background-color: #cc7b7a;
+  color: white;
+}
+
+.navbar-custom .logo-sekolah .img-logo-nav {
+  width: 70px;
+}
+
+.navbar-custom .logo-sekolah span {
+  /* background-color: blueviolet; */
+  padding-left: 20px;
+  color: #cc7b7a;
+  font-weight: 600;
+  font-size: 40px;
+  -webkit-text-stroke: 1px white;
+}
+
+/* . */
+/* . */
+/* . */
+/* . */
+
+/* Menu Custom */
+.pop-up-container {
+  position: absolute;
+  display: none;
+  min-width: 100vw;
+  min-height: 100vh;
+  align-items: center;
+  justify-content: center;
+}
+
+.black-area-pause {
+  position: absolute;
+  z-index: 10;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100vh;
+  max-width: 100vw;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.main-menu-custom {
+  position: relative;
+  z-index: 11;
+  display: none;
+  min-width: 370px;
+  width: 30%;
+  height: 70%;
+  padding: 10px 20px;
+  border-radius: 18px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  /* background-color: antiquewhite; */
+}
+
+.main-menu-custom .menu-container {
+  position: relative;
+  width: 100%;
+  z-index: 1;
+}
+
+.main-menu-custom .menu-container .close-main-menu {
+  font-size: 23px;
+  justify-self: end;
+  transition: ease-in-out 0.35s;
+  border-radius: 50%;
+  padding: 10px 12px;
+  border: solid transparent 3px;
+  /* background-color: blueviolet; */
+}
+
+.main-menu-custom .menu-container .close-main-menu:hover {
+  border-color: white;
+  transform: rotate(90deg);
+  cursor: pointer;
+}
+
+.main-menu-custom .menu-container .menu-header {
+  display: flex;
+  justify-content: center;
+  font-size: 45px;
+  margin-bottom: 20px;
+
+  font-weight: bold;
+  color: white;
+  -webkit-text-stroke: 2px #b9aeb8;
+}
+
+.main-menu-custom .menu-container .menu-header:hover {
+  cursor: default;
+}
+
+.main-menu-custom .menu-container ul {
+  display: flex;
+  flex-direction: column;
+}
+
+.main-menu-custom .menu-container a {
+  align-self: center;
+  width: 75%;
+  padding: 20px 0;
+  border-radius: 18px;
+  margin-bottom: 10px;
+  color: white;
+
+  background: url("../assets/images/GO\ GO\ GO.png") no-repeat;
+  background-size: cover;
+
+  /* background-color: yellow; */
+  list-style: none;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+@media only screen and (min-width: 1420px) {
+  .main-menu-custom .menu-container a {
+    margin-bottom: 40px;
+  }
+}
+
+.main-menu-custom .menu-container a:hover {
+  transform: scale(110%);
+}
+
+.main-menu-custom .menu-container li {
+  font-size: 24px;
+  /* background-color: aqua; */
+}
+
+#bg-pause {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  object-fit: cover;
+  z-index: 0;
+  border-radius: 18px;
+}
+
+#pause-video {
+  position: fixed;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  color: #f1f1f1;
+  width: 100px;
+  padding: 20px;
+}
+
+/* .......... */
+
+/* . */
+/* . */
+/* . */
+/* . */
+
+/* Main Content */
+.main-content-custom {
+  display: flex;
+  align-self: center;
+  align-items: start;
+  padding-top: 10%;
+  justify-content: center;
+  width: 60%;
+  height: 80%;
+}
+
+.main-content-custom .play-menu-container {
+  position: absolute;
+  z-index: 1;
+  text-align: center;
+  width: 100%;
+  /* background-color: red; */
+}
+
+.play-menu-container .play-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  /* background-color: aquamarine; */
+}
+
+.play-menu-container li {
+  display: inline;
+  align-self: center;
+  width: 500px;
+  padding: 10px 0;
+  list-style: none;
+  /* background-color: rebeccapurple; */
+}
+
+.play-menu-container li a {
+  /* background-color: red; */
+  padding: 10px;
+  width: 100%;
+  color: white;
+  text-decoration: none;
+  -webkit-text-stroke: 1px #cc7b7a;
+}
+
+.play-menu-container li a:hover {
+  font-size: 50px;
+}
+
+.play-menu-container li a .fa-door-closed {
+  display: inline;
+}
+
+.play-menu-container li a .fa-door-open {
+  display: none;
+}
+
+.play-menu-container li a:hover .fa-door-open {
+  display: inline;
+}
+
+.play-menu-container li a:hover .fa-door-closed {
+  display: none;
+}
+
+.play-menu-container li a i {
+  padding-right: 10px;
+}
+
+.main-content-custom .bg-main-content {
+  position: relative;
+  display: none; /* flex kan saat setelah terjadi triger */
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  /* background: rgba(0, 0, 0, 0.8); */
+  background-image: url("../assets/images/bg-nickname.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border: 4px white solid;
+  border-radius: 18px;
+}
+
+.main-content-custom .nickname-container {
+  position: absolute;
+  display: none; /* flex kan saat setelah terjadi triger */
+  align-self: center;
+  z-index: 3;
+  color: wheat;
+  flex-direction: column;
+  /* background-color: aqua; */
+}
+
+.main-content-custom .nickname-container .input-nickname {
+  border: none;
+  text-align: center;
+  font-family: "DynaPuff", system-ui;
+  font-size: 34px;
+  font-weight: bold;
+  color: #cc7b7a;
+  background-color: transparent;
+}
+
+.main-content-custom .nickname-container .input-nickname:focus {
+  outline: none;
+}
+
+/* SEGEL */
+
+/* CSS */
+.btn-nm {
+  appearance: none;
+  /* background-color: #ffffff; */
+  background-color: #63c304;
+  border-radius: 40em;
+  border-style: none;
+  box-shadow: #adcfff 0 -12px 6px inset;
+  box-sizing: border-box;
+  color: #000000;
+  cursor: pointer;
+  display: inline-block;
+  font-family: -apple-system, sans-serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: -0.24px;
+  margin: 0;
+  outline: none;
+  padding: 1rem 1.3rem;
+  quotes: auto;
+  text-align: center;
+  text-decoration: none;
+  transition: all 0.15s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.btn-nm:hover {
+  background-color: #ffc229;
+  box-shadow: #ff6314 0 -6px 8px inset;
+  transform: scale(1.125);
+}
+
+.btn-nm:active {
+  transform: scale(1.025);
+}
+
+@media (min-width: 768px) {
+  .btn-nm {
+    font-size: 1.5rem;
+    padding: 0.75rem 2rem;
+  }
+}
+/* SEGEL! */
+
+/* transition */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.fade-in {
+  animation: fadeIn 1s ease-in-out forwards;
+  opacity: 0;
+}
+
+@keyframes zoomIn {
+  from {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.zoom-in {
+  animation: zoomIn 1.3s ease forwards;
+  opacity: 0;
+  transform: scale(0.5);
+}

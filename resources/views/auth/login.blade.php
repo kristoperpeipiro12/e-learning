@@ -9,15 +9,13 @@
 </head>
 <body>
     <div class="wrapper">
-        <form action="{{ route('guru') }}" method="POST">
+        {{-- <form action="{{ route('guru') }}" method="POST"> --}}
+        <form action="{{ route('guru') }}">
 @csrf
             <h2>Login</h2>
-
             <div class="input-field">
                 {{-- <input type="text" required> --}}
                 <input type="text">
-
-
                 <label>Username</label>
             </div>
 
