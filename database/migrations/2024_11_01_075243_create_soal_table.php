@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('soal', function (Blueprint $table) {
-            $table->autonumber('id_soal')->primary();
+            $table->id('id_soal');
             $table->string('mapel');
             $table->foreign('mapel')->references('mapel')->on('mapels');
             $table->text('soal');

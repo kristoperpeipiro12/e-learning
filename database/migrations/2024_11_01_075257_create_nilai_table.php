@@ -15,9 +15,9 @@ return new class extends Migration
             $table->integer('id_murid')->primary();
             $table->string('mapel');
             $table->foreign('mapel')->references('mapel')->on('mapels');
-            $tabel->date('tanggal_isi');
-            $tabel->enum('status'); $table->enum('status', ['selesai', 'tidak selesai']);
-            $table->integer('nilai')->nullable();
+            $table->date('tanggal_isi');
+            $table->enum('status', ['selesai', 'tidak selesai']); // Mendefinisikan enum status
+            $table->integer('nilai')->nullable(); // Mengizinkan nilai null
             $table->timestamps();
         });
     }
