@@ -9,23 +9,25 @@
 </head>
 <body>
     <div class="wrapper">
-      <form action="{{ route('login.process') }}" method="POST">
-          @csrf
-          <h2>Login</h2>
-          <div class="input-field">
-              <input type="text" name="username" required>
-              <label>Username</label>
-          </div>
-          <div class="input-field password-toggle">
-              <input type="password" name="password" id="password" required>
-              <label>Password</label>
-              <i class="fas fa-eye" id="togglePassword"></i>
-          </div>
+        <img src="{{ asset('Tlogin/logo.png') }}" alt="Logo" class="logo">
 
-            <button type="submit">Log In</button>
-            <div class="register">
-                <p>Don't have an account? <a href="#">hubungi admin</a></p>
+        <form action="{{ route('login.process') }}" method="POST">
+            @csrf
+            <h2>Login</h2>
+            <div class="input-field">
+                <input type="text" name="username" required>
+                <label>Username</label>
             </div>
+            <div class="input-field password-toggle">
+                <input type="password" name="password" id="password" required>
+                <label>Password</label>
+                <i class="fas fa-eye" id="togglePassword"></i>
+            </div>
+
+            <button type="submit">Masuk</button>
+            {{-- <div class="register">
+                <p>Don't have an account? <a href="#">hubungi admin</a></p>
+            </div> --}}
         </form>
     </div>
 
