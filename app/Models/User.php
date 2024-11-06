@@ -16,13 +16,12 @@ class User extends Authenticatable
     // Primary key
     protected $primaryKey = 'id_user';
 
-    // Kolom-kolom yang bisa diisi
+   
     protected $fillable = [
         'username',
         'password',
     ];
 
-    // Hidden attributes (misalnya untuk menyembunyikan password saat serialisasi)
     protected $hidden = [
         'password',
     ];
