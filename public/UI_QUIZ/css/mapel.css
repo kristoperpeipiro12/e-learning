@@ -1,0 +1,96 @@
+@import url("https://fonts.googleapis.com/css2?family=DynaPuff:wght@400..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "DynaPuff", system-ui;
+}
+
+#bg-mapel {
+  position: absolute;
+  width: 100vw;
+  max-height: 100vh;
+  object-fit: cover;
+  z-index: -1;
+}
+
+.content-area {
+  display: flex;
+  justify-content: center;
+  min-width: 100vw;
+  min-height: 100vh;
+  /* background-color: red; */
+}
+
+.content-area .content-container {
+  display: flex;
+  width: 100%;
+  max-width: 1420px;
+  justify-content: center;
+  /* background-color: rebeccapurple; */
+}
+
+.content-area .content-container .mapel-container {
+  display: flex;
+  width: 100%;
+  padding: 15% 0;
+  justify-content: space-around;
+  /* background-color: aqua; */
+}
+
+.content-area .mapel-container .lesson-container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 30%;
+}
+
+.bg-wrap {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 80%;
+  background-color: coral;
+}
+
+.bg-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.mapel-container span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 20%;
+  font-size: 40px;
+  background-color: darkgoldenrod;
+}
+
+.lesson-container:hover {
+  cursor: pointer;
+}
+
+.lesson-container:hover .title-lesson {
+  background-color: azure;
+  font-size: 48px !important;
+}
+
+/* Shadow */
+.shadow {
+  position: absolute;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30%;
+  height: 45.86%;
+  /* height: 100%; */
+  background-color: aquamarine;
+}

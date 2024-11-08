@@ -5,19 +5,24 @@ document.addEventListener("DOMContentLoaded", function () {
     let blackAreaPause = document.getElementById("black-area-pause");
     let popUpMenu = document.getElementById("pop-up-menu");
     let xPauseMenu = document.getElementById("x-pause-menu");
+    let bgPause = document.getElementById("bg-pause");
     pauseMenu.addEventListener("click", function () {
+      bgPause.currentTime = 0; // mengulangi video dari awal
+      bgPause.play();
       blackAreaPause.style.display = "flex";
       popUpMenu.style.display = "flex";
       popUpContainer.style.display = "flex";
     });
 
     xPauseMenu.addEventListener("click", function () {
+      bgPause.currentTime = 0; // mengulangi video dari awal
       popUpMenu.style.display = "none";
       blackAreaPause.style.display = "none";
       popUpContainer.style.display = "none";
     });
 
     blackAreaPause.addEventListener("click", function () {
+      bgPause.currentTime = 0; // mengulangi video dari awal
       popUpMenu.style.display = "none";
       blackAreaPause.style.display = "none";
       popUpContainer.style.display = "none";
@@ -34,18 +39,49 @@ document.addEventListener("DOMContentLoaded", function () {
   let playQuiz = document.getElementById("btn-play-quiz");
   let leaveQuiz = document.getElementById("btn-leave-quiz");
   if (playQuiz && leaveQuiz) {
+    let bgMainContent = document.getElementById("bg-main-content");
+    let nicknameContainer = document.getElementById("nickname-container");
+    let mainContentCustom = document.getElementById("main-content-custom");
+    let blackAreaNickname = document.getElementById("black-area-nickname");
+
     playQuiz.addEventListener("click", function () {
+      playQuiz.style.display = "none";
+      leaveQuiz.style.display = "none";
       const audio = document.querySelector("audio");
       audio.muted = false;
       audio.play().catch((error) => {
         console.log("Autoplay dibatasi oleh browser:", error);
       });
-      let bgMainContent = document.getElementById("bg-main-content");
-      let nicknameContainer = document.getElementById("nickname-container");
-      let mainContentCustom = document.getElementById("main-content-custom");
+
+      blackAreaNickname.style.display = "flex";
       bgMainContent.style.display = "flex";
       nicknameContainer.style.display = "flex";
       mainContentCustom.style.paddingTop = "0px";
+    });
+
+    let btnNmMulai = document.getElementById("btn-nm-mulai");
+    let btnNmBatal = document.getElementById("btn-nm-batal");
+    let inputNicknameMurid = document.getElementById("input-nickname-murid");
+    if (btnNmBatal && blackAreaNickname) {
+      function closeNickname() {
+        playQuiz.style.display = "block";
+        leaveQuiz.style.display = "block";
+        blackAreaNickname.style.display = "none";
+        bgMainContent.style.display = "none";
+        nicknameContainer.style.display = "none";
+        mainContentCustom.style.paddingTop = "10%";
+        inputNicknameMurid.value = "";
+      }
+
+      btnNmBatal.addEventListener("click", closeNickname);
+      blackAreaNickname.addEventListener("click", closeNickname);
+    }
+  }
+
+  let skphLink = document.getElementById("skph-link");
+  if (skphLink) {
+    skphLink.addEventListener("click", function () {
+      window.open("https://skph.sch.id/", "_blank");
     });
   }
 
@@ -59,12 +95,4 @@ document.addEventListener("DOMContentLoaded", function () {
     // bgPause.style.height = tinggiMenuPause;
     // bgPause.style.width = lebarMenuPause;
   }
-
-  // window.addEventListener("load", function () {
-  //   const audio = document.querySelector("audio");
-  //   audio.muted = false;
-  //   audio.play().catch((error) => {
-  //     console.log("Autoplay dibatasi oleh browser:", error);
-  //   });
-  // });
 });

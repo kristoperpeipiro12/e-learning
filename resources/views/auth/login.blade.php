@@ -24,10 +24,9 @@
                 <i class="fas fa-eye" id="togglePassword"></i>
             </div>
 
-            <button type="submit">Masuk</button>
-            {{-- <div class="register">
-                <p>Don't have an account? <a href="#">hubungi admin</a></p>
-            </div> --}}
+            <button type="submit">Masuk </button>
+            <a href="javascript:history.back()">Kembali</a>
+            {{-- <button type="button" onclick="history.back()">Kembali</button>  --}}
         </form>
     </div>
 

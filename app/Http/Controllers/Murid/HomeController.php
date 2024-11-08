@@ -8,10 +8,13 @@ class HomeController extends Controller
 {
     //
     public function index(){
-        return view('murid.index');
+        return view('murid.mapel');
     }
 
-    public function tugas(){
-        return view('murid.tugas');
+    public function soalmtk(){
+        return view('murid.soalmath');
+    }
+    public function soaleng(){
+        return view('murid.soaleng');
     }
 }
