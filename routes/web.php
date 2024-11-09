@@ -3,6 +3,8 @@
 use App\Http\Controllers\Auth\LoginController;
 // use App\Http\Controllers\LoginController;
 use App\Http\Controllers\Guru\HomeController as GuruHomeController;
+use App\Http\Controllers\Guru\InggrisController;
+use App\Http\Controllers\Guru\MatematikaController;
 use App\Http\Controllers\Murid\HomeController as MuridHomeController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
@@ -13,6 +15,8 @@ Route::get('/', [HomeController::class, 'index'])->name('home.index');
 Route::get('/login', [LoginController::class, 'index'])->name('login');
 Route::post('/login', [LoginController::class, 'login'])->name('login.process');
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
+Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
+
 // Route Admin
 // Route::prefix('admin')->group(function () {
 //     Route::get('/', [AdminHomeController::class, 'index'])->name('admin');
@@ -21,6 +25,11 @@ Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 // Route Guru
 Route::prefix('guru')->group(function () {
     Route::get('/', [GuruHomeController::class, 'index'])->name('guru');
+Route::get('/math', [MatematikaController::class, 'index'])->name('guru.matematika');
+Route::get('/eng', [InggrisController::class, 'index'])->name('guru.inggris');
+
+
+
 });
 
 // Murid Route

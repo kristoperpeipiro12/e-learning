@@ -3,10 +3,10 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-use App\Models\User;
 
 class LoginController extends Controller
 {
@@ -23,20 +23,16 @@ class LoginController extends Controller
             'password' => 'required|string',
         ]);
 
-    
         $user = User::where('username', $request->username)->first();
 
-    
         if ($user && Hash::check($request->password, $user->password)) {
             Auth::login($user);
-            return redirect()->intended(route('guru'))->with('success', 'Logged in successfully');
+            return redirect()->route('guru')->with('success', 'Anda Berhasil Login');
         } else {
-            return back()->withErrors([
-                'username' => 'The provided credentials do not match our records.',
-            ]);
+            return redirect()->back()->with('error', 'Username atau password salah');
         }
-    }
 
+    }
 
     public function logout(Request $request)
     {

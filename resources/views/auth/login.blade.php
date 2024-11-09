@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 <body>
+    {{-- @include('sweetalert::alert') --}}
+
     <div class="wrapper">
         <img src="{{ asset('Tlogin/logo.png') }}" alt="Logo" class="logo">
 
