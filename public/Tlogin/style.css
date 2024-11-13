@@ -37,9 +37,13 @@ body::before {
   border-radius: 8px;
   padding: 30px;
   text-align: center;
-  border: 1px solid rgba(255, 255, 255, 0.5);
+  border: 1px solid rgba(55, 31, 31, 0.5);
   backdrop-filter: blur(9px);
   -webkit-backdrop-filter: blur(9px);
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  -ms-border-radius: 8px;
+  -o-border-radius: 8px;
 }
 
 form {
@@ -50,7 +54,7 @@ form {
 h2 {
   font-size: 2rem;
   margin-bottom: 20px;
-  color: #fff;
+  color: #000000;
 }
 
 .input-field {
@@ -64,7 +68,7 @@ h2 {
   top: 50%;
   left: 0;
   transform: translateY(-50%);
-  color: #fff;
+  color: #000000;
   font-size: 16px;
   pointer-events: none;
   transition: 0.15s ease;
@@ -77,7 +81,7 @@ h2 {
   border: none;
   outline: none;
   font-size: 16px;
-  color: #fff;
+  color: #000000;
 }
 
 .input-field input:focus~label,

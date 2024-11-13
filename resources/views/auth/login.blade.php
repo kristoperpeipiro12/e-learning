@@ -27,7 +27,8 @@
             </div>
 
             <button type="submit">Masuk </button>
-            <a href="javascript:history.back()">Kembali</a>
+           <a href="javascript:history.back()" style="color: black;">Kembali</a>
+
             {{-- <button type="button" onclick="history.back()">Kembali</button>  --}}
         </form>
     </div>
