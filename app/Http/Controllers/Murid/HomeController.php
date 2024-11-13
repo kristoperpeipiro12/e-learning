@@ -15,6 +15,6 @@ class HomeController extends Controller
         return view('murid.soalmath');
     }
     public function soaleng(){
-        return view('murid.soaleng');
+        return view('murid.soal');
     }
 }
