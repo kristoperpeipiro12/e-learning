@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Guru;
+namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 
@@ -9,6 +9,6 @@ class HomeController extends Controller
 {
     //
     public function index(){
-        return view('guru.dashboard.index');
+        return view('admin.dashboard.index');
     }
 }

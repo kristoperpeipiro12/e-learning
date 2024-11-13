@@ -27,7 +27,7 @@ class LoginController extends Controller
 
         if ($user && Hash::check($request->password, $user->password)) {
             Auth::login($user);
-            return redirect()->route('guru')->with('success', 'Anda Berhasil Login');
+            return redirect()->route('admin')->with('success', 'Anda Berhasil Login');
         } else {
             return redirect()->back()->with('error', 'Username atau password salah');
         }
