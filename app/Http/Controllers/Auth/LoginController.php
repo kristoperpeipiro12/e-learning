@@ -40,6 +40,6 @@ class LoginController extends Controller
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 
-        return redirect('/login')->with('success', 'Logged out successfully');
+        return redirect('/login')->with('success', 'Anda Berhasi Logout');
     }
 }
