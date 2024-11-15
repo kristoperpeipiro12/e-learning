@@ -25,18 +25,17 @@ Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 // Route admin
 Route::prefix('admin')->group(function () {
     Route::get('/', [adminHomeController::class, 'index'])->name('admin');
-Route::get('/math', [MatematikaController::class, 'index'])->name('admin.matematika');
-Route::get('/eng', [InggrisController::class, 'index'])->name('admin.inggris');
-
-
+    Route::get('/math', [MatematikaController::class, 'index'])->name('admin.matematika');
+    Route::get('/eng', [InggrisController::class, 'index'])->name('admin.inggris');
+    Route::get('/math/create', [MatematikaController::class, 'create'])->name('admin.matematika.create');
 
 });
 
 // Murid Route
 Route::prefix('murid')->group(function () {
     Route::get('/', [MuridHomeController::class, 'index'])->name('murid.mapel');
-Route::get('/matematika', [MuridHomeController::class, 'soalmtk'])->name('murid.matematika');
-Route::get('/inggris', [MuridHomeController::class, 'soaleng'])->name('murid.inggris');
+    Route::get('/matematika', [MuridHomeController::class, 'soalmtk'])->name('murid.matematika');
+    Route::get('/inggris', [MuridHomeController::class, 'soaleng'])->name('murid.inggris');
 
 
     Route::get('/tugas', [MuridHomeController::class, 'tugas'])->name('murid.tugas');
