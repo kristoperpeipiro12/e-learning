@@ -6,7 +6,7 @@
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="{{ route('admin') }}">Admin</a></li>
                 {{-- <li class="breadcrumb-item active" aria-current="page">@yield('slash-page')</li> --}}
-                <li class="breadcrumb-item"><a href="{{ route('admin.inggris') }}">Mapel</a></li>
+                <li class="breadcrumb-item"><a href="{{ route('admin.mapel') }}">Mapel</a></li>
             </ol>
         </div>
 
