@@ -15,7 +15,7 @@
             <div class="card mb-4">
                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                     <h6 class="m-0 font-weight-bold text-primary">Mata Pelajaran </h6>
-                    <a href="{{ route('admin.mapel.create') }}" class="btn btn-success">+ Tambah</a>
+                    <button id="openModal" class="btn btn-success">+ Tambah</button>
                 </div>
                 <div class="table-responsive p-3">
                     <table class="table align-items-center table-flush table-hover" id="dataTableHover">
@@ -193,6 +193,27 @@
 
                         </tbody>
                     </table>
+                </div>
+            </div>
+        </div>
+
+        {{-- Modal Section --}}
+        <div class="background-overlay" id="modal">
+            <div class="modal-window">
+                <a class="btn close-button" id="closeModal">
+                    <i class="fas fa-times"></i>
+                </a>
+                <div class="modal-header">Tambah Mata Pelajaran</div>
+                <div class="modal-body">
+                    <form action="#" method="POST">
+                        <label for="subjectName">Nama Mata Pelajaran</label>
+                        <input type="text" id="subjectName" name="subjectName" class="input-field"
+                            placeholder="Masukkan nama mata pelajaran" required>
+                        <div class="button-group">
+                            <button type="reset" class="secondary-button button">Reset</button>
+                            <button type="submit" class="button">Submit</button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>

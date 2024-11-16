@@ -28,7 +28,6 @@ Route::prefix('admin')->group(function () {
     Route::get('/', [adminHomeController::class, 'index'])->name('admin');
 
     Route::get('/mapel', [MapelController::class, 'index'])->name('admin.mapel');
-    Route::get('/mapel/create', [MapelController::class, 'create'])->name('admin.mapel.create');
 
     Route::get('/math', [MatematikaController::class, 'index'])->name('admin.matematika');
     Route::get('/math/create', [MatematikaController::class, 'create'])->name('admin.matematika.create');

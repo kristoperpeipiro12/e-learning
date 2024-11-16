@@ -11,9 +11,4 @@ class MapelController extends Controller
     {
         return view('admin.mapel.index');
     }
-
-    public function create()
-    {
-        return view('admin.mapel.create');
-    }
 }
