@@ -4,8 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
-{
+return new class extends Migration {
     /**
      * Run the migrations.
      */
@@ -13,8 +12,8 @@ return new class extends Migration
     {
         Schema::create('nilai', function (Blueprint $table) {
             $table->integer('id_murid')->primary();
-            $table->string('mapel');
-            $table->foreign('mapel')->references('mapel')->on('mapels');
+            $table->string('id_mapel');
+            $table->foreign('id_mapel')->references('id_mapel')->on('mapels');
             $table->date('tanggal_isi');
             $table->enum('status', ['selesai', 'tidak selesai']); // Mendefinisikan enum status
             $table->integer('nilai')->nullable(); // Mengizinkan nilai null

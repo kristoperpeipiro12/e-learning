@@ -15,7 +15,7 @@
             <div class="card mb-4">
                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                     <h6 class="m-0 font-weight-bold text-primary">Soal Matematika</h6>
-                    <button class="btn btn-success">+ Tambah</button>
+                    <a href="{{ route('admin.matematika.create') }}" class="btn btn-success">+ Tambah</a>
                 </div>
                 <div class="table-responsive p-3">
                     <table class="table align-items-center table-flush table-hover" id="dataTableHover">

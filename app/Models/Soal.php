@@ -20,7 +20,7 @@ class Soal extends Model
 
     // Kolom-kolom yang bisa diisi
     protected $fillable = [
-        'mapel',
+        'id_mapel',
         'soal',
         'gambar_soal',
         'jumlah_soal'
@@ -29,7 +29,7 @@ class Soal extends Model
     // Relasi ke model Mapel
     public function mapel()
     {
-        return $this->belongsTo(Mapel::class, 'mapel', 'mapel');
+        return $this->belongsTo(Mapel::class, 'id_mapel', 'id_mapel');
     }
 }
 

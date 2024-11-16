@@ -4,8 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
-{
+return new class extends Migration {
     /**
      * Run the migrations.
      */
@@ -13,10 +12,11 @@ return new class extends Migration
     {
         Schema::create('soal', function (Blueprint $table) {
             $table->id('id_soal');
-            $table->string('mapel');
-            $table->foreign('mapel')->references('mapel')->on('mapels');
+            $table->string('id_mapel');
+            $table->foreign('id_mapel')->references('id_mapel')->on('mapels');
             $table->text('soal');
             $table->string('gambar_soal')->nullable();
+            $table->string('video_soal')->nullable();
             $table->integer('jumlah_soal');
             $table->timestamps();
         });

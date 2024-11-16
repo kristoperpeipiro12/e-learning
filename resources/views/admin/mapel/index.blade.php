@@ -6,7 +6,7 @@
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="{{ route('admin') }}">Admin</a></li>
                 {{-- <li class="breadcrumb-item active" aria-current="page">@yield('slash-page')</li> --}}
-                <li class="breadcrumb-item"><a href="{{ route('admin.inggris') }}">English</a></li>
+                <li class="breadcrumb-item"><a href="{{ route('admin.inggris') }}">Mapel</a></li>
             </ol>
         </div>
 
@@ -14,8 +14,8 @@
         <div class="col-lg-12">
             <div class="card mb-4">
                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                    <h6 class="m-0 font-weight-bold text-primary">Soal Bahasa Inggris </h6>
-                    <a href="{{ route('admin.inggris.create') }}" class="btn btn-success">+ Tambah</a>
+                    <h6 class="m-0 font-weight-bold text-primary">Mata Pelajaran </h6>
+                    <a href="{{ route('admin.mapel.create') }}" class="btn btn-success">+ Tambah</a>
                 </div>
                 <div class="table-responsive p-3">
                     <table class="table align-items-center table-flush table-hover" id="dataTableHover">

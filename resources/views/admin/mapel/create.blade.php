@@ -6,15 +6,15 @@
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="{{ route('admin') }}">Admin</a></li>
                 {{-- <li class="breadcrumb-item active" aria-current="page">@yield('slash-page')</li> --}}
-                <li class="breadcrumb-item"><a href="{{ route('admin.matematika') }}">Matematika</a></li>
-                <li class="breadcrumb-item"><a href="{{ route('admin.matematika.create') }}">Create</a></li>
+                <li class="breadcrumb-item"><a href="{{ route('admin.mapel') }}">Mapel</a></li>
+                <li class="breadcrumb-item"><a href="{{ route('admin.mapel.create') }}">Create</a></li>
             </ol>
         </div>
 
         <div class="col-lg-12">
             <div class="card mb-4">
                 <div class="quiz-wrapper">
-                    <h6 class="m-2 align-self-start font-weight-bold text-primary">Tambah Soal Matematika</h6>
+                    <h6 class="m-2 align-self-start font-weight-bold text-primary">Tambah Mata Pelajaran</h6>
                     <div class="quiz-input-container">
                         <header>
                             <h1>Quiz Input Form</h1>

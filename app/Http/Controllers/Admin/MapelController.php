@@ -3,17 +3,17 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 
-
-class InggrisController extends Controller
+class MapelController extends Controller
 {
-    //
     public function index()
     {
-        return view('admin.materi.inggris.index');
+        return view('admin.mapel.index');
     }
+
     public function create()
     {
-        return view('admin.materi.inggris.create');
+        return view('admin.mapel.create');
     }
 }
