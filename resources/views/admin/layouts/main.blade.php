@@ -20,7 +20,7 @@
                 <a class="nav-link" href="{{ route('admin.mapel') }}">
                     {{-- <i class="fas fa-fw fa-sign-out-alt"></i> --}}
                     <i class="fas fa-fw fa-solid fa-book-open"></i>
-                    <span>Mapel</span> 
+                    <span>Mapel</span>
                 </a>
             </li>
 
@@ -34,6 +34,11 @@
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         {{-- <h6 class="collapse-header">Bootstrap UI</h6> --}}
+                        {{-- @forelse ($listMapel as $pelajaran)
+                            <a class="collapse-item" href="{{ route('admin.{{ $pelajaran->mapel }}') }}">{{ $pelajaran->mapel }}</a>
+                        @empty
+                            <span>Belum Ada Mapel!</span>
+                        @endforelse --}}
                         <a class="collapse-item" href="{{ route('admin.matematika') }}">Matematika</a>
                         <a class="collapse-item" href="{{ route('admin.inggris') }}">Bahasa Inggris</a>
                     </div>

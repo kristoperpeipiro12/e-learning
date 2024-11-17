@@ -25,8 +25,8 @@ class Nilai extends Model
         'nilai'
     ];
 
-    public function mapel()
-    {
-        return $this->belongsTo(Mapel::class, 'mapel', 'mapel');
-    }
+    // public function mapel()
+    // {
+    //     return $this->belongsTo(Mapel::class, 'mapel', 'mapel');
+    // }
 }

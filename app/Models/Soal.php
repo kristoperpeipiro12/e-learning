@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use \Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Soal extends Model
 {
@@ -23,11 +24,13 @@ class Soal extends Model
         'id_mapel',
         'soal',
         'gambar_soal',
-        'jumlah_soal'
+        'video_soal',
+        'pilihan_a',
+        'pilihan_b',
+        'pilihan_c',
+        'kunci_jawaban'
     ];
-
-    // Relasi ke model Mapel
-    public function mapel()
+    public function mapel(): BelongsTo
     {
         return $this->belongsTo(Mapel::class, 'id_mapel', 'id_mapel');
     }

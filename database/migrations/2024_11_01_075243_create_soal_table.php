@@ -17,7 +17,10 @@ return new class extends Migration {
             $table->text('soal');
             $table->string('gambar_soal')->nullable();
             $table->string('video_soal')->nullable();
-            $table->integer('jumlah_soal');
+            $table->string('pilihan_a');
+            $table->string('pilihan_b');
+            $table->string('pilihan_c');
+            $table->string('kunci_jawaban');
             $table->timestamps();
         });
     }

@@ -20,7 +20,7 @@
                             <div class="col mr-2">
                                 <div class="text-xs font-weight-bold text-uppercase mb-1">Total Soal
                                 </div>
-                                <div class="h5 mb-0 font-weight-bold text-gray-800">7</div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $totSoal }}</div>
                                 <div class="mt-2 mb-0 text-muted text-xs">
                                     <!-- <span class="text-success mr-2"><i class="fas fa-arrow-up"></i> 12%</span> -->
                                     <span>Tahun Ajar 2024/2025</span>
@@ -41,7 +41,7 @@
                             <div class="col mr-2">
                                 <div class="text-xs font-weight-bold text-uppercase mb-1">Total Mapel
                                 </div>
-                                <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">2</div>
+                                <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">{{ $totMapel }}</div>
                                 <div class="mt-2 mb-0 text-muted text-xs">
                                     <!-- <span class="text-success mr-2"><i class="fas fa-arrow-up"></i> 20.4%</span> -->
                                     <span>Tahun Ajar 2024/2025</span>

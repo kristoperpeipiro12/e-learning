@@ -14,62 +14,70 @@
         <div class="col-lg-12">
             <div class="card mb-4">
                 <div class="quiz-wrapper">
-                    <h6 class="m-2 align-self-start font-weight-bold text-primary">Tambah Soal Matematika</h6>
                     <div class="quiz-input-container">
                         <header>
-                            <h1>Quiz Input Form</h1>
-                            <p>Input your quiz questions with options, images, or videos.</p>
+                            <h1>Tambah Soal Matematika</h1>
+                            <p>Masukkan pertanyaan quiz beserta pilihan, gambar, atau video</p>
                         </header>
-                        <form action="" method="POST" enctype="multipart/form-data">
+                        <form action="{{ route('matematika.store') }}" method="POST" enctype="multipart/form-data">
+                            @csrf
+                            <input type="text" name="id_mapel" value="mp_1" hidden>
                             <!-- Question Text -->
                             <div class="form-group">
-                                <label for="question">Question Text:</label>
-                                <textarea id="question" name="question" rows="4" placeholder="Enter the question here..." required></textarea>
+                                <label for="question">Pertanyaan:</label>
+                                <textarea id="question" name="soal" rows="4" placeholder="Enter the question here..." required>{{ old('soal') }}</textarea>
                             </div>
 
                             <!-- Upload Image -->
                             <div class="form-group">
                                 <label for="image">Upload Image (optional):</label>
-                                <input type="file" id="image" name="image" accept="image/*">
+                                <input type="file" id="image" name="gambar_soal" accept="image/*"
+                                    value="{{ old('gambar_soal') }}">
                             </div>
 
                             <!-- Upload Video -->
                             <div class="form-group">
                                 <label for="video">Upload Video (optional):</label>
-                                <input type="file" id="video" name="video" accept="video/*">
+                                <input type="file" id="video" name="video_soal" accept="video/*"
+                                    value="{{ old('video_soal') }}">
                             </div>
 
                             <!-- Answer Options -->
                             <div class="form-group">
-                                <label>Answer Options:</label>
+                                <label>Pilihan Jawaban:</label>
                                 <div class="option">
                                     <label for="option-a">a. </label>
-                                    <input type="text" id="option-a" name="options[]" placeholder="Option A" required>
+                                    <input type="text" autocomplete="false" id="option-a" name="pilihan_a"
+                                        value="{{ old('pilihan_a') }}" placeholder="Option A" required>
                                 </div>
                                 <div class="option">
                                     <label for="option-b">b. </label>
-                                    <input type="text" id="option-b" name="options[]" placeholder="Option B" required>
+                                    <input type="text" autocomplete="false" id="option-b" name="pilihan_b"
+                                        value="{{ old('pilihan_b') }}" placeholder="Option B" required>
                                 </div>
                                 <div class="option">
                                     <label for="option-c">c. </label>
-                                    <input type="text" id="option-c" name="options[]" placeholder="Option C" required>
+                                    <input type="text" autocomplete="false" id="option-c" name="pilihan_c"
+                                        value="{{ old('pilihan_c') }}" placeholder="Option C" required>
                                 </div>
                             </div>
 
                             <!-- Correct Answer -->
                             <div class="form-group">
-                                <label for="correct-answer">Correct Answer:</label>
-                                <select id="correct-answer" name="correct_answer" required>
-                                    <option value="" disabled selected>Select the correct answer</option>
-                                    <option value="a">a</option>
-                                    <option value="b">b</option>
-                                    <option value="c">c</option>
+                                <label for="correct-answer">Kunci Jawaban:</label>
+                                <select id="correct-answer" name="kunci_jawaban" required>
+                                    <option value="" disabled {{ old('kunci_jawaban') ? '' : 'selected' }}>Select the
+                                        correct answer</option>
+                                    <option value="a" {{ old('kunci_jawaban') == 'a' ? 'selected' : '' }}>a</option>
+                                    <option value="b" {{ old('kunci_jawaban') == 'b' ? 'selected' : '' }}>b</option>
+                                    <option value="c" {{ old('kunci_jawaban') == 'c' ? 'selected' : '' }}>c</option>
                                 </select>
                             </div>
 
+
                             <!-- Submit Button -->
                             <div class="form-group">
-                                <button type="submit" class="submit-btn">Submit Question</button>
+                                <button type="submit" class="submit-btn">Simpan Pertanyaan</button>
                             </div>
                         </form>
                     </div>
