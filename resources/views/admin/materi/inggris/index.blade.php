@@ -37,8 +37,23 @@
                                 <tr>
                                     <td>{{ $number = $number + 1 }}</td>
                                     <td>{{ $soal->soal }}</td>
-                                    <td>{{ $soal->gambar_soal }}</td>
-                                    <td>{{ $soal->video_soal }}</td>
+                                    <td>
+                                        @if ($soal->gambar_soal)
+                                        <img src="{{ asset('storage/' . $soal->gambar_soal) }}" alt="Gambar Soal" style="max-width: 100px; height: auto;">
+                                        @else
+                                        -
+                                        @endif
+                                    </td>
+                                    <td>
+                                        @if ($soal->video_soal)
+                                        <video width="150" controls>
+                                            <source src="{{ asset('storage/' . $soal->video_soal) }}" type="video/{{ pathinfo($soal->video_soal, PATHINFO_EXTENSION) }}">
+                                            Browser Anda tidak mendukung video.
+                                        </video>
+                                        @else
+                                        -
+                                        @endif
+                                    </td>
                                     <td>{{ $soal->pilihan_a }}</td>
                                     <td>{{ $soal->pilihan_b }}</td>
                                     <td>{{ $soal->pilihan_c }}</td>
