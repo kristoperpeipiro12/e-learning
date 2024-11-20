@@ -13,9 +13,9 @@ return new class extends Migration {
         Schema::create('players', function (Blueprint $table) {
             $table->string('id_player');
             $table->string('id_mapel');
-            $table->string('id_mapel')->references('id_mapel')->on('mapels');
+            $table->foreign('id_mapel')->references('id_mapel')->on('mapels');
             $table->string('username');
-            $table->string('score');
+            $table->float('score');
             $table->timestamps();
         });
     }

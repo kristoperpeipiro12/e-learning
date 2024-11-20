@@ -4,11 +4,11 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" href="{{ asset('UI_QUIZ/assets/images/logoSekolah.png')}}" />
+    <link rel="icon" href="{{ asset('UI_QUIZ/assets/images/logoSekolah.png') }}" />
     <title>SKPH Quiz</title>
-    <link rel="stylesheet" href="{{ asset('UI_QUIZ/assets/icons/bootstrap-icons/font/bootstrap-icons.min.css')}}" />
-    <link rel="stylesheet" href="{{ asset('UI_QUIZ/css/style.css')}}" />
-    <link rel="stylesheet" href="{{ asset('UI_QUIZ/fontawesome-6.6.0/css/all.min.css')}}" />
+    <link rel="stylesheet" href="{{ asset('UI_QUIZ/assets/icons/bootstrap-icons/font/bootstrap-icons.min.css') }}" />
+    <link rel="stylesheet" href="{{ asset('UI_QUIZ/css/style.css') }}" />
+    <link rel="stylesheet" href="{{ asset('UI_QUIZ/fontawesome-6.6.0/css/all.min.css') }}" />
 </head>
 
 <body>
@@ -17,7 +17,7 @@
         <section class="navbar-custom">
             <div class="logo-sekolah-wrap">
                 <a href="#" class="logo-sekolah">
-                    <img class="img-logo-nav" src="{{ asset('UI_QUIZ/assets/images/logoSekolah.png')}}"
+                    <img class="img-logo-nav" src="{{ asset('UI_QUIZ/assets/images/logoSekolah.png') }}"
                         alt="logo-sekolah" />
                     <span>SKPH Quiz</span>
                 </a>
@@ -78,7 +78,7 @@
         <div class="black-area-pause" id="black-area-pause"></div>
         <div class="main-menu-custom" id="pop-up-menu">
             <video muted loop id="bg-pause">
-                <source id="pause-video" src="{{ asset('UI_QUIZ/assets/video/bg-pause-menu-murid.mp4')}}"
+                <source id="pause-video" src="{{ asset('UI_QUIZ/assets/video/bg-pause-menu-murid.mp4') }}"
                     type="video/mp4" />
             </video>
             <div class="menu-container">
@@ -102,18 +102,18 @@
     </div>
 
     <!-- Background (gambar) -->
-    <img id="bg-halloween" src="{{ asset('UI_QUIZ/assets/images/bg-math-exercise-long.png')}}" alt="" />
+    <img id="bg-halloween" src="{{ asset('UI_QUIZ/assets/images/bg-math-exercise-long.png') }}" alt="" />
 
     <!-- Backsound -->
-    <audio src="{{ asset('UI_QUIZ/assets/audio/doodle.mp3')}}" autoplay muted></audio>
+    <audio src="{{ asset('UI_QUIZ/assets/audio/doodle.mp3') }}" autoplay muted></audio>
 
     <script>
-    window.addEventListener("load", () => {
-        const audio = document.querySelector("audio");
-        audio.muted = false;
-    });
+        window.addEventListener("load", () => {
+            const audio = document.querySelector("audio");
+            audio.muted = false;
+        });
     </script>
-    <script src="{{ asset('UI_QUIZ/js/script.js')}}"></script>
+    <script src="{{ asset('UI_QUIZ/js/script.js') }}"></script>
 </body>
 
 </html>

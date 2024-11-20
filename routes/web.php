@@ -7,6 +7,7 @@ use App\Http\Controllers\admin\HomeController as adminHomeController;
 use App\Http\Controllers\admin\InggrisController;
 use App\Http\Controllers\admin\MatematikaController;
 use App\Http\Controllers\Murid\HomeController as MuridHomeController;
+use App\Http\Controllers\Player\PlayerController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 
@@ -43,11 +44,8 @@ Route::prefix('admin')->group(function () {
 });
 
 // Murid Route
-Route::prefix('murid')->group(function () {
-    Route::get('/', [MuridHomeController::class, 'index'])->name('murid.mapel');
-    Route::get('/matematika', [MuridHomeController::class, 'soalmtk'])->name('murid.matematika');
-    Route::get('/inggris', [MuridHomeController::class, 'soaleng'])->name('murid.inggris');
-
-
-    Route::get('/tugas', [MuridHomeController::class, 'tugas'])->name('murid.tugas');
+Route::prefix('player')->group(function () {
+    // Route::get('/', [PlayerController::class, 'index'])->name('player');
+    Route::get('/mapel', [PlayerController::class, 'index'])->name('player.mapel');
+    Route::get('/soal/{mapel}', [PlayerController::class, 'play'])->name('player.play');
 });
