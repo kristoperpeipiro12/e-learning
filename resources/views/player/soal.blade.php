@@ -30,45 +30,51 @@
             <div class="soal-container">
                 <div class="nomor-isi-soal">
                     <!-- soal polos -->
-                    <span id="nomor-soal" class="nomor-soal">Soal Nomor 1</span>
+                    <span id="nomor-soal" class="nomor-soal">Soal Nomor {{ $nomor }}</span>
                     <div class="soal-polos">
-                        <span id="isi-soal" class="isi-soal">1 + 1 =</span>
+                        <span id="isi-soal" class="isi-soal">{{ $isi_soal }}</span>
                     </div>
 
                     <!-- soal gambar -->
-                    <div class="soal-gambar"></div>
-
+                    <div class="soal-gambar"><img src="{{ asset('storage/' . $gambar) }}" alt="gambar-soal"
+                            style="width: 220px">
+                    </div>
                     <!-- soal video -->
-                    <div class="soal-video"></div>
+                    <div class="soal-video">{{ $video }}</div>
 
                     <!-- soal gambar & video -->
                     <div class="soal-gambar-video"></div>
                 </div>
 
                 <!-- ... -->
-                <div class="jawaban-wrap">
-                    <ul>
-                        <li>
-                            <label>
-                                <input type="radio" name="jawaban" value="A" required> A. Pilihan A
-                            </label>
-                        </li>
-                        <li>
-                            <label>
-                                <input type="radio" name="jawaban" value="B"> B. Pilihan B
-                            </label>
-                        </li>
-                        <li>
-                            <label>
-                                <input type="radio" name="jawaban" value="C"> C. Pilihan C
-                            </label>
-                        </li>
-                    </ul>
-                </div>
-                <div class="btn-wrap">
-                    <button class="btn-soal btn-soal-jawab">Jawab</button>
-                    <button class="btn-soal btn-soal-hapus">Hapus</button>
-                </div>
+                <form action="{{ route('soal.correction') }}" method="post">
+                    @csrf
+                    <div class="jawaban-wrap">
+                        <ul>
+                            <li>
+                                <label>
+                                    <input type="radio" name="jawaban" value="a" required> A.
+                                    {{ $a }}
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="radio" name="jawaban" value="b"> B. {{ $b }}
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="radio" name="jawaban" value="c"> C. {{ $c }}
+                                </label>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="btn-wrap">
+                        <button class="btn-soal btn-soal-jawab" type="submit">Jawab</button>
+                        <button class="btn-soal btn-soal-hapus" type="reset">Hapus</button>
+                    </div>
+                </form>
+
             </div>
         </section>
     </div>

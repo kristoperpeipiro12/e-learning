@@ -48,4 +48,5 @@ Route::prefix('player')->group(function () {
     // Route::get('/', [PlayerController::class, 'index'])->name('player');
     Route::get('/mapel', [PlayerController::class, 'index'])->name('player.mapel');
     Route::get('/soal/{mapel}', [PlayerController::class, 'play'])->name('player.play');
+    Route::post('/soal/correction', [PlayerController::class, 'correction'])->name('soal.correction');
 });
