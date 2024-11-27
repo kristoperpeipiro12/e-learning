@@ -36,6 +36,8 @@ class InggrisController extends Controller
             'video_soal.max'  => 'Ukuran video tidak boleh lebih dari 20MB.',
         ]);
 
+        $id_soal = Soal::count() + 1;
+
         $gambarPath = null;
         $videoPath  = null;
 
@@ -52,6 +54,7 @@ class InggrisController extends Controller
         }
 
         Soal::create([
+            'id_soal'       => $id_soal,
             'id_mapel'      => $request->id_mapel,
             'soal'          => $request->soal,
             'gambar_soal'   => $gambarPath,

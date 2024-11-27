@@ -37,6 +37,7 @@ class MatematikaController extends Controller
             'video_soal.max'  => 'Ukuran video tidak boleh lebih dari 20MB.',
         ]);
 
+        $id_soal = Soal::count() + 1;
 
 $gambarPath = null;
 $videoPath  = null;
@@ -57,6 +58,7 @@ if ($request->hasFile('video_soal')) {
 
 
         Soal::create([
+            'id_soal'       => $id_soal,
             'id_mapel'      => $request->id_mapel,
             'soal'          => $request->soal,
             'gambar_soal'   => $gambarPath,

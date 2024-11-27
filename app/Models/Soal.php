@@ -17,10 +17,11 @@ class Soal extends Model
     protected $primaryKey = 'id_soal';
 
     // Mengaktifkan auto-increment pada primary key
-    public $incrementing = true;
+    public $incrementing = false;
 
     // Kolom-kolom yang bisa diisi
     protected $fillable = [
+        'id_soal',
         'id_mapel',
         'soal',
         'gambar_soal',
@@ -35,4 +36,3 @@ class Soal extends Model
         return $this->belongsTo(Mapel::class, 'id_mapel', 'id_mapel');
     }
 }
-
