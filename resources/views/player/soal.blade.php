@@ -36,11 +36,17 @@
                     </div>
 
                     <!-- soal gambar -->
-                    <div class="soal-gambar"><img src="{{ asset('storage/' . $gambar) }}" alt="gambar-soal"
-                            style="width: 220px">
-                    </div>
+                    @if ($gambar != null)
+                        <div class="soal-gambar"><img src="{{ asset('storage/' . $gambar) }}" alt="gambar-soal"
+                                style="width: 220px">
+                        </div>
+                    @endif
+
+
                     <!-- soal video -->
-                    <div class="soal-video">{{ $video }}</div>
+                    @if ($video != null)
+                        <div class="soal-video"><video controls src="{{ asset('storage/' . $video) }}"></video></div>
+                    @endif
 
                     <!-- soal gambar & video -->
                     <div class="soal-gambar-video"></div>

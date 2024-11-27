@@ -17,19 +17,20 @@ class PlayerController extends Controller
     public function play($mapel)
     {
         // Tentukan mapel
-        $mapel = $mapel === 'matematika' ? 'mp_1' : 'mp_2';
+        if (session('mapel') === null) {
+            $mapel = $mapel === 'matematika' ? 'mp_1' : 'mp_2';
+        } else {
+            $mapel = session('mapel');
+        }
 
         // Ambil nomor soal dari sesi, default ke 1
         $nomor = session('nomor', 1);
 
+        \Log::info('Mapel:', ['mapel' => $mapel]);
+        \Log::info('Nomor soal:', ['nomor' => $nomor]);
+
         // Ambil soal berdasarkan nomor
         $soal = Soal::where('id_mapel', $mapel)->skip($nomor - 1)->first();
-        $isi_soal = $soal->soal;
-        $gambar = $soal->gambar_soal;
-        $video = $soal->video_soal;
-        $a = $soal->pilihan_a;
-        $b = $soal->pilihan_b;
-        $c = $soal->pilihan_c;
 
         if (!$soal) {
             // Jika soal habis, hitung nilai akhir
@@ -41,8 +42,17 @@ class PlayerController extends Controller
             return view('player.result', compact('nilai_akhir', 'jumlah_benar', 'jumlah_soal'));
         }
 
+        $isi_soal = $soal->soal;
+        $gambar = $soal->gambar_soal;
+        $video = $soal->video_soal;
+        $a = $soal->pilihan_a;
+        $b = $soal->pilihan_b;
+        $c = $soal->pilihan_c;
+
+
+
         // Simpan data mapel dan soal ke sesi
-        session(['mapel' => $mapel, 'soal_id' => $soal]);
+        session(['mapel' => $mapel, 'soal_id' => $soal->id_soal]);
 
         return view('player.soal', compact('isi_soal', 'nomor', 'a', 'b', 'c', 'gambar', 'video'));
     }
@@ -75,5 +85,10 @@ class PlayerController extends Controller
 
         // Redirect ke soal berikutnya
         return redirect()->route('player.play', ['mapel' => session('mapel')]);
+    }
+
+    public function result()
+    {
+        return view('player.result');
     }
 }

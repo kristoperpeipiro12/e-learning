@@ -11,11 +11,11 @@ class Player extends Model
     use HasFactory;
     protected $table = 'player';
     protected $primaryKey = 'id_player';
+
     public $incrementing = false;
     protected $keyType = 'string';
 
     protected $fillable = [
-        'id_player',
         'id_mapel',
         'username',
         'score'
