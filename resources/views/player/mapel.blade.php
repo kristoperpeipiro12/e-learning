@@ -17,7 +17,7 @@
         <div class="content-container">
             <div class="mapel-container">
                 <!-- MATEMATIKA -->
-                <section class="lesson-container">
+                <section class="lesson-container .lesson-math-hover">
                     <!-- <div class="shadow"><span>oke</span></div> -->
                     <div class="bg-wrap">
                         <a href="{{ route('player.play', ['mapel' => 'matematika']) }}">
@@ -33,7 +33,7 @@
                 </section>
 
                 <!-- INGGIRS -->
-                <section class="lesson-container">
+                <section class="lesson-container .lesson-eng-hover">
                     <div class="bg-wrap">
                         <a href="{{ route('player.play', ['mapel' => 'inggris']) }}">
                             <img src="{{ asset('UI_QUIZ/assets/images/bg-english.jpg') }}" alt="" />
