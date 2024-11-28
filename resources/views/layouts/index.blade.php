@@ -47,16 +47,28 @@
             <!-- area nickname -->
             <div id="nickname-container" class="nickname-container fade-in">
                 <span class="masukkan-nama-span">Masukkan Nama Anda</span>
-                <input type="text" name="" id="input-nickname-murid" class="input-nickname fade-in"
-                    placeholder="Klik disini" />
 
-                <button id="btn-nm-mulai" class="btn-nm btn-nm-mulai" role="button"
-                    onclick="window.location.href='{{ route('player.mapel') }}'">
-                    Mulai
-                </button>
-                <button id="btn-nm-batal" class="btn-nm btn-nm-batal" type="reset">
-                    Batal
-                </button>
+                <!-- session -->
+                @if (session('error'))
+                <div style="color: red;">
+                    {{ session('error') }}
+                </div>
+                @endif
+
+                <!-- input name to session -->
+                <form action="{{ route('home.saveName') }}" method="post">
+                    @csrf
+                    <input type="text" name="name" id="input-nickname-murid" class="input-nickname fade-in"
+                        placeholder="Klik disini" />
+
+
+                    <button type="submit" id="btn-nm-mulai" class="btn-nm btn-nm-mulai" role="button">
+                        Mulai
+                    </button>
+                    <button id="btn-nm-batal" class="btn-nm btn-nm-batal" type="reset">
+                        Batal
+                    </button>
+                </form>
             </div>
             <!-- ...... -->
 

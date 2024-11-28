@@ -38,8 +38,9 @@ class PlayerController extends Controller
             $jumlah_soal = session('jumlah_soal', 0);
 
             $nilai_akhir = ($jumlah_soal > 0) ? ($jumlah_benar / $jumlah_soal) * 100 : 0;
+            $username = session('user_name');
 
-            return view('player.result', compact('nilai_akhir', 'jumlah_benar', 'jumlah_soal'));
+            return view('player.result', compact('nilai_akhir', 'jumlah_benar', 'jumlah_soal','username'));
         }
 
         $isi_soal = $soal->soal;

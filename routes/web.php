@@ -44,9 +44,18 @@ Route::prefix('admin')->group(function () {
 });
 
 // Murid Route
-Route::prefix('player')->group(function () {
-    // Route::get('/', [PlayerController::class, 'index'])->name('player');
+Route::post('/save-name', [HomeController::class, 'saveName'])->name('home.saveName');
+// route diatas masih dalam tahap percobaan
+
+Route::prefix('player')->middleware('checkUserName')->group(function () {
     Route::get('/mapel', [PlayerController::class, 'index'])->name('player.mapel');
     Route::get('/soal/{mapel}', [PlayerController::class, 'play'])->name('player.play');
     Route::post('/soal/correction', [PlayerController::class, 'correction'])->name('soal.correction');
 });
+
+//rout di bawah merupakan route lama
+// Route::prefix('player')->group(function () {
+//     Route::get('/mapel', [PlayerController::class, 'index'])->name('player.mapel');
+//     Route::get('/soal/{mapel}', [PlayerController::class, 'play'])->name('player.play');
+//     Route::post('/soal/correction', [PlayerController::class, 'correction'])->name('soal.correction');
+// });
