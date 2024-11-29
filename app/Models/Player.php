@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 class Player extends Model
 {
     use HasFactory;
-    protected $table = 'player';
+    protected $table = 'players';
     protected $primaryKey = 'id_player';
 
     public $incrementing = false;

@@ -55,6 +55,8 @@
     <script src="{{ asset('sistem-mulmet/template/RuangAdmin/vendor/datatables/jquery.dataTables.min.js') }}"></script>
     <script src="{{ asset('sistem-mulmet/template/RuangAdmin/vendor/datatables/dataTables.bootstrap4.min.js') }}"></script>
     <script src="{{ asset('UI_QUIZ/js/script-mapel.js') }}"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
 
     <!-- Page level custom scripts -->
     <script>
