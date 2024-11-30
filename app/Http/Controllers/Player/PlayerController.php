@@ -71,29 +71,6 @@ class PlayerController extends Controller
         return view('player.soal', compact('isi_soal', 'nomor', 'a', 'b', 'c', 'gambar', 'video'));
     }
 
-
-
-    public function store(Request $request)
-    {
-        \Log::info('pantek');
-        $this->validate($request, [
-            'id_player' => 'required|string',
-            'id_mapel' => 'required|string',
-            'username' => 'required|string|max:255',
-            'score' => 'required|integer|max:11',
-        ]);
-        \Log::info('pantek2');
-
-        Player::create([
-            'id_player' => Str::uuid()->toString(),
-            'id_mapel' => $request->id_mapel,
-            'username' => $request->username,
-            'score' => $request->score,
-        ]);
-        \Log::info('pantek-ayam');
-        return redirect()->route('player.result');
-    }
-
     public function correction(Request $request)
     {
         // Ambil soal dari sesi

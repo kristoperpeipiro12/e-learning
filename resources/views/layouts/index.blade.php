@@ -56,7 +56,7 @@
                 @endif
 
                 <!-- input name to session -->
-                <form action="{{ route('home.saveName') }}" method="post">
+                <form class="form-wrap" action="{{ route('home.saveName') }}" method="post">
                     @csrf
                     <input type="text" name="name" id="input-nickname-murid" class="input-nickname fade-in"
                         placeholder="Klik disini" />
