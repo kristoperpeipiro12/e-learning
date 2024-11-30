@@ -10,12 +10,13 @@ class PlayerController extends Controller
     public function index()
     {
         // Reset session ketika pengguna memulai ulang permainan
-        session()->forget(['nomor', 'jumlah_benar', 'jumlah_soal']);
+        session()->forget(['nomor', 'jumlah_benar', 'jumlah_soal', 'mapel']);
         return view('player.mapel');
     }
 
     public function play($mapel)
     {
+        \Log::info('Mapel:', ['mapel' => $mapel]);
         // Tentukan mapel
         if (session('mapel') === null) {
             $mapel = $mapel === 'matematika' ? 'mp_1' : 'mp_2';
@@ -40,7 +41,7 @@ class PlayerController extends Controller
             $nilai_akhir = ($jumlah_soal > 0) ? ($jumlah_benar / $jumlah_soal) * 100 : 0;
             $username = session('user_name');
 
-            return view('player.result', compact('nilai_akhir', 'jumlah_benar', 'jumlah_soal','username'));
+            return view('player.result', compact('nilai_akhir', 'jumlah_benar', 'jumlah_soal', 'username'));
         }
 
         $isi_soal = $soal->soal;
