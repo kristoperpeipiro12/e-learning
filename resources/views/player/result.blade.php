@@ -27,8 +27,8 @@
         </div>
     </div>
 
-    <video autoplay muted loop id="gs-wrap">
-        <source id="gs-vid" src="{{ asset('UI_QUIZ/assets/video/bg-ai.mp4') }}" type="video/mp4" />
+    <video autoplay muted id="gs-wrap">
+        <source id="gs-vid" src="{{ asset('UI_QUIZ/assets/video/bg-result.mp4') }}" type="video/mp4" />
     </video>
 
     <script>

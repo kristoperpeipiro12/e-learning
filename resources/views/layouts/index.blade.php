@@ -50,9 +50,9 @@
 
                 <!-- session -->
                 @if (session('error'))
-                <div style="color: red;">
-                    {{ session('error') }}
-                </div>
+                    <div style="color: red;">
+                        {{ session('error') }}
+                    </div>
                 @endif
 
                 <!-- input name to session -->
@@ -76,10 +76,10 @@
         </section>
 
         <!-- footer -->
-        <section class="footer-custom">
+        {{-- <section class="footer-custom">
             <span>copyright @ 2024</span>
             <a id="skph-link" href="" class="skph-link">Sekolah Kristen Pelita Hati</a>
-        </section>
+        </section> --}}
     </div>
 
     <!-- Background (Footer) -->
