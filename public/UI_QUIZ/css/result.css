@@ -30,10 +30,21 @@ li {
     align-items: center;
     border-radius: 34px;
     padding: 20px;
-    width: 40%;
-    height: 50%;
+    width: 55%;
+    height: 70%;
     background-color: brown;
     gap: 12px;
+}
+
+.content-container .shdw-card {
+    border-radius: 44px;
+    position: absolute;
+    z-index: -1;
+    margin-top: 12px;
+    margin-left: 15px;
+    width: 55%;
+    height: 72%;
+    background-color: rgba(0, 0, 0, 0.5);
 }
 
 .username {
@@ -43,7 +54,7 @@ li {
 }
 
 .score-display {
-    font-size: 9rem;
+    font-size: 75px;
     font-weight: bold;
     color: #333;
     margin: 20px 0;

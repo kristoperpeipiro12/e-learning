@@ -30,26 +30,23 @@
             <div class="soal-container">
                 <div class="nomor-isi-soal">
                     <!-- soal polos -->
-                    <span id="nomor-soal" class="nomor-soal">Soal Nomor {{ $nomor }}</span>
+                    <span id="nomor-soal" class="nomor-soal">{{ $nomor }}</span>
                     <div class="soal-polos">
-                        <span id="isi-soal" class="isi-soal">{{ $isi_soal }}</span>
+                        <span id="isi-soal" class="isi-soal">{{ $isi_soal }} ...</span>
                     </div>
 
                     <!-- soal gambar -->
                     @if ($gambar != null)
-                        <div class="soal-gambar"><img src="{{ asset('storage/' . $gambar) }}" alt="gambar-soal"
-                                style="width: 220px">
-                        </div>
+                    <div class="soal-gambar"><img src="{{ asset('storage/' . $gambar) }}" alt="gambar-soal"
+                            style="width: 220px">
+                    </div>
                     @endif
-
 
                     <!-- soal video -->
                     @if ($video != null)
-                        <div class="soal-video"><video controls src="{{ asset('storage/' . $video) }}"></video></div>
+                    <div class="soal-video"><video controls src="{{ asset('storage/' . $video) }}"></video></div>
                     @endif
 
-                    <!-- soal gambar & video -->
-                    <div class="soal-gambar-video"></div>
                 </div>
 
                 <!-- ... -->
@@ -58,20 +55,16 @@
                     <div class="jawaban-wrap">
                         <ul>
                             <li>
-                                <label>
-                                    <input type="radio" name="jawaban" value="a" required> A.
-                                    {{ $a }}
-                                </label>
+                                <input type="radio" id="jawabanA" name="jawaban" value="a" required>
+                                <label for="jawabanA">A. {{ $a }}</label>
                             </li>
                             <li>
-                                <label>
-                                    <input type="radio" name="jawaban" value="b"> B. {{ $b }}
-                                </label>
+                                <input type="radio" id="jawabanB" name="jawaban" value="b">
+                                <label for="jawabanB">B. {{ $b }}</label>
                             </li>
                             <li>
-                                <label>
-                                    <input type="radio" name="jawaban" value="c"> C. {{ $c }}
-                                </label>
+                                <input type="radio" id="jawabanC" name="jawaban" value="c">
+                                <label for="jawabanC">C. {{ $c }}</label>
                             </li>
                         </ul>
                     </div>
@@ -80,6 +73,7 @@
                         <button class="btn-soal btn-soal-hapus" type="reset">Hapus</button>
                     </div>
                 </form>
+
 
             </div>
         </section>
@@ -102,10 +96,10 @@
                     <a href="#" id="lanjut-menu">
                         <li>Lanjut</li>
                     </a>
-                    <a href="#" id="pengaturan-menu">
+                    <!-- <a href="#" id="pengaturan-menu">
                         <li>Pengaturan</li>
-                    </a>
-                    <a href="#" id="keluar-menu">
+                    </a> -->
+                    <a href="{{ route('home.index') }}" id="keluar-menu">
                         <li>Keluar</li>
                     </a>
                 </ul>
@@ -117,13 +111,13 @@
     <img id="bg-halloween" src="{{ asset('UI_QUIZ/assets/images/bg-math-exercise-long.png') }}" alt="" />
 
     <!-- Backsound -->
-    <audio src="{{ asset('UI_QUIZ/assets/audio/doodle.mp3') }}" autoplay muted></audio>
+    <!-- <audio src="{{ asset('UI_QUIZ/assets/audio/doodle.mp3') }}" autoplay muted></audio> -->
 
     <script>
-        window.addEventListener("load", () => {
-            const audio = document.querySelector("audio");
-            audio.muted = false;
-        });
+    window.addEventListener("load", () => {
+        const audio = document.querySelector("audio");
+        audio.muted = false;
+    });
     </script>
     <script src="{{ asset('UI_QUIZ/js/script.js') }}"></script>
 </body>

@@ -25,44 +25,53 @@
             <a href="{{ route('home.index') }}" class="btn-selesai">Selesai</a>
 
         </div>
+        <div class="shdw-card"></div>
     </div>
 
     <video autoplay muted id="gs-wrap">
         <source id="gs-vid" src="{{ asset('UI_QUIZ/assets/video/bg-result.mp4') }}" type="video/mp4" />
     </video>
 
+    <!-- Backsound -->
+    <audio src="{{ asset('UI_QUIZ/assets/audio/doodle.mp3') }}" autoplay muted></audio>
+
+
     <script>
-        // Ambil nilai akhir dari server (nilai_akhir)
-        const finalScore = {
-            {
-                $nilai_akhir
+    window.addEventListener("load", () => {
+        const audio = document.querySelector("audio");
+        audio.muted = false;
+    });
+    // Ambil nilai akhir dari server (nilai_akhir)
+    const finalScore = {
+        {
+            $nilai_akhir
+        }
+    };
+    const scoreElement = document.getElementById('score');
+    const cardResult = document.getElementById('card');
+    let currentScore = 0;
+
+    // Efek berhitung dari 0 ke nilai akhir
+    const updateScore = () => {
+        const interval = setInterval(() => {
+            if (currentScore < finalScore) {
+                currentScore++;
+                scoreElement.textContent = currentScore;
+                // Animasi pop setiap angka berubah
+                scoreElement.style.animation = 'none';
+                cardResult.style.animation = 'none';
+                setTimeout(() => {
+                    scoreElement.style.animation = '';
+                    cardResult.style.animation = '';
+                }, 50);
+            } else {
+                clearInterval(interval);
             }
-        };
-        const scoreElement = document.getElementById('score');
-        const cardResult = document.getElementById('card');
-        let currentScore = 0;
+        }, 30); // Kecepatan update dalam milidetik
+    };
 
-        // Efek berhitung dari 0 ke nilai akhir
-        const updateScore = () => {
-            const interval = setInterval(() => {
-                if (currentScore < finalScore) {
-                    currentScore++;
-                    scoreElement.textContent = currentScore;
-                    // Animasi pop setiap angka berubah
-                    scoreElement.style.animation = 'none';
-                    cardResult.style.animation = 'none';
-                    setTimeout(() => {
-                        scoreElement.style.animation = '';
-                        cardResult.style.animation = '';
-                    }, 50);
-                } else {
-                    clearInterval(interval);
-                }
-            }, 30); // Kecepatan update dalam milidetik
-        };
-
-        // Mulai efek saat halaman selesai dimuat
-        window.onload = updateScore;
+    // Mulai efek saat halaman selesai dimuat
+    window.onload = updateScore;
     </script>
 </body>
 

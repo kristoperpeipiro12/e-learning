@@ -115,6 +115,7 @@ body {
     display: none;
     min-width: 100vw;
     min-height: 100vh;
+    margin-bottom: 30px;
     align-items: center;
     justify-content: center;
 }
@@ -171,13 +172,13 @@ body {
     transition: ease-in-out 0.35s;
     border-radius: 50%;
     padding: 10px 12px;
-    border: solid transparent 3px;
+    border: solid transparent 1.5px;
     color: #eb848f;
     /* background-color: blueviolet; */
 }
 
 .main-menu-custom .menu-container .close-main-menu:hover {
-    border-color: #e75261;
+    border-color: #eb848f;
     transform: rotate(90deg);
     cursor: pointer;
 }
@@ -264,7 +265,7 @@ body {
     display: flex;
     align-self: center;
     align-items: start;
-    padding-top: 10%;
+    /* padding-top: 5%; */
     justify-content: center;
     width: 60%;
     height: 80%;
@@ -369,7 +370,7 @@ body {
     width: 50vw !important;
     max-width: 800px;
     justify-content: center;
-    background-color: #4c6b54;
+    /* background-color: #4c6b54; */
 }
 
 .nickname-container .form-wrap .input-nickname {
@@ -443,7 +444,7 @@ body {
 
 /* Soal Content */
 .content-size-custom {
-    padding-top: 10vh;
+    padding-top: 3vh;
     width: 80%;
 }
 
@@ -463,6 +464,10 @@ body {
     box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3);
 }
 
+.nomor-isi-soal {
+    padding: 10px 50px;
+}
+
 .soal-container .nomor-isi-soal .soal-polos,
 .soal-gambar,
 .soal-video,
@@ -475,36 +480,83 @@ body {
 }
 
 .nomor-isi-soal .nomor-soal {
+    padding: 8px 22px;
+    border-radius: 100%;
+    border: 2px solid #f4a1a9;
     font-size: 34px;
-    color: #f3c2c7;
+    color: #f4a1a9;
+    background-color: rgba(185, 174, 184, 0.4);
 }
 
 .nomor-isi-soal .isi-soal {
-    text-align: justify;
+    text-align: center;
 }
 
 .jawaban-wrap {
     margin: 25px 0 15px 0;
     padding: 3.5px 0;
-    text-align: center;
+    text-align: start;
     width: 100%;
     /* background-color: #983428; */
 }
 
-.jawaban-wrap input {
-    text-align: center;
-    font-size: 40px;
-    font-family: "DynaPuff", system-ui;
-    outline: none;
-    border: 0;
-    font-weight: bold;
-    color: white;
-    -webkit-text-stroke: 1px #f3c2c7;
-    background-color: transparent;
+.jawaban-wrap li input[type="radio"] {
+    display: none;
+}
+
+.jawaban-wrap label {
+    position: relative;
+    cursor: pointer;
+    font-size: 18px;
+    color: #d27676;
+    margin-left: 35px; /* Memberi jarak agar label tidak menempel */
+    display: inline-block;
+}
+
+.jawaban-wrap label::before {
+    content: "";
+    position: absolute;
+    left: -35px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+    border: 2px solid #d27676;
+    border-radius: 50%; /* Membentuk lingkaran */
+    background-color: white;
+    transition: 0.3s;
+}
+
+
+.jawaban-wrap input[type="radio"]:checked + label::before {
+    background-color: #d27676;
+}
+
+.jawaban-wrap input[type="radio"]:checked + label::after {
+    content: "";
+    position: absolute;
+    left: -29px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 10px;
+    height: 10px;
+    background-color: white;
+    border-radius: 50%; /* Bentuk lingkaran kecil */
 }
 
 .jawaban-wrap input::placeholder {
     color: white;
+}
+
+.jawaban-wrap ul {
+    display: flex;
+    gap: 50px;
+}
+
+.jawaban-wrap ul li {
+    font-size: 24px;
+    color: #cc7b7a;
+    list-style: none;
 }
 
 .jawaban-wrap input:focus {
