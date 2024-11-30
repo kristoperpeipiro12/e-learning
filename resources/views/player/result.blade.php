@@ -16,8 +16,8 @@
     <div class="content-container">
         <div class="card-result" id="card">
             <h1>Hasil Quiz</h1>
-            <div class="score-display" id="score">{{ $nilai_akhir }}</div>
-            <span class="username">{{ $username }}</span>
+            <div class="score-display" id="score">{{ $player->score }}</div>
+            <span class="username">{{ $player->username }}</span>
             <div class="wrap-tf">
                 <span>Benar : {{ $jumlah_benar }}</span>
                 <span>Salah : {{ $jumlah_soal - $jumlah_benar }}</span>

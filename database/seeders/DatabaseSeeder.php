@@ -15,6 +15,7 @@ class DatabaseSeeder extends Seeder
         $this->call([
             MapelSeeder::class,
             PlayerSeeder::class,
+            SoalSeeder::class,
         ]);
     }
 }

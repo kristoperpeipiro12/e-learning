@@ -3,10 +3,13 @@ namespace App\Http\Controllers\Player;
 
 use App\Http\Controllers\Controller;
 use App\Models\Soal;
+use App\Models\Player;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class PlayerController extends Controller
 {
+    private $habis = false;
     public function index()
     {
         // Reset session ketika pengguna memulai ulang permainan
@@ -17,33 +20,46 @@ class PlayerController extends Controller
     public function play($mapel)
     {
         \Log::info('Mapel:', ['mapel' => $mapel]);
-        // Tentukan mapel
+
         if (session('mapel') === null) {
             $mapel = $mapel === 'matematika' ? 'mp_1' : 'mp_2';
         } else {
             $mapel = session('mapel');
         }
 
-        // Ambil nomor soal dari sesi, default ke 1
         $nomor = session('nomor', 1);
-
-        \Log::info('Mapel:', ['mapel' => $mapel]);
-        \Log::info('Nomor soal:', ['nomor' => $nomor]);
-
-        // Ambil soal berdasarkan nomor
+        $tot_soal = Soal::where('id_mapel', $mapel)->count();
         $soal = Soal::where('id_mapel', $mapel)->skip($nomor - 1)->first();
 
         if (!$soal) {
-            // Jika soal habis, hitung nilai akhir
+            // Semua soal selesai
             $jumlah_benar = session('jumlah_benar', 0);
             $jumlah_soal = session('jumlah_soal', 0);
-
             $nilai_akhir = ($jumlah_soal > 0) ? ($jumlah_benar / $jumlah_soal) * 100 : 0;
             $username = session('user_name');
 
-            return view('player.result', compact('nilai_akhir', 'jumlah_benar', 'jumlah_soal', 'username'));
+            \Log::info('Data yang akan disimpan:', [
+                'id_player' => Str::uuid()->toString(),
+                'id_mapel' => session('mapel'),
+                'username' => $username,
+                'score' => $nilai_akhir,
+            ]);
+
+            $id_player = Str::uuid()->toString();
+            // Simpan data ke database
+            Player::create([
+                'id_player' => $id_player,
+                'id_mapel' => session('mapel'),
+                'username' => $username,
+                'score' => $nilai_akhir,
+            ]);
+            $player = Player::where('id_player', $id_player)->first();
+
+            // Redirect ke halaman hasil
+            return view('player.result', compact('player', 'jumlah_soal', 'jumlah_benar'));
         }
 
+        // Jika soal masih ada
         $isi_soal = $soal->soal;
         $gambar = $soal->gambar_soal;
         $video = $soal->video_soal;
@@ -51,12 +67,31 @@ class PlayerController extends Controller
         $b = $soal->pilihan_b;
         $c = $soal->pilihan_c;
 
-
-
-        // Simpan data mapel dan soal ke sesi
         session(['mapel' => $mapel, 'soal_id' => $soal->id_soal]);
-
         return view('player.soal', compact('isi_soal', 'nomor', 'a', 'b', 'c', 'gambar', 'video'));
+    }
+
+
+
+    public function store(Request $request)
+    {
+        \Log::info('pantek');
+        $this->validate($request, [
+            'id_player' => 'required|string',
+            'id_mapel' => 'required|string',
+            'username' => 'required|string|max:255',
+            'score' => 'required|integer|max:11',
+        ]);
+        \Log::info('pantek2');
+
+        Player::create([
+            'id_player' => Str::uuid()->toString(),
+            'id_mapel' => $request->id_mapel,
+            'username' => $request->username,
+            'score' => $request->score,
+        ]);
+        \Log::info('pantek-ayam');
+        return redirect()->route('player.result');
     }
 
     public function correction(Request $request)

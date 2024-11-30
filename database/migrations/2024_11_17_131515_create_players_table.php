@@ -11,11 +11,11 @@ return new class extends Migration {
     public function up(): void
     {
         Schema::create('players', function (Blueprint $table) {
-            $table->string('id_player');
+            $table->string('id_player')->primary();
             $table->string('id_mapel');
             $table->foreign('id_mapel')->references('id_mapel')->on('mapels');
             $table->string('username');
-            $table->float('score');
+            $table->integer('score');
             $table->timestamps();
         });
     }

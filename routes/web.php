@@ -51,6 +51,7 @@ Route::prefix('player')->middleware('checkUserName')->group(function () {
     Route::get('/mapel', [PlayerController::class, 'index'])->name('player.mapel');
     Route::get('/soal/{mapel}', [PlayerController::class, 'play'])->name('player.play');
     Route::post('/soal/correction', [PlayerController::class, 'correction'])->name('soal.correction');
+    Route::post('/soal/store', [PlayerController::class, 'store'])->name('soal.result');
 });
 
 //rout di bawah merupakan route lama
