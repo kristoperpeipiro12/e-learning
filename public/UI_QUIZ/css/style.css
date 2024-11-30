@@ -209,15 +209,28 @@ body {
     padding: 20px 0;
     border-radius: 18px;
     margin-bottom: 10px;
-    color: white;
-
-    background: url("../assets/images/GO\ GO\ GO.png") no-repeat;
-    background-size: cover;
+    font-weight: 700;
+    color: #ffffff;
+    -webkit-text-stroke: 1px #cc7b7a;
+    border: 2px solid #b9aeb8;
 
     /* background-color: yellow; */
     list-style: none;
     text-decoration: none;
     transition: 0.3s;
+}
+
+.main-menu-custom .menu-container .lanjut {
+    background: url("../assets/images/bg-menu-l.png") no-repeat;
+    background-color: rgb(183, 228, 114);
+    background-size: cover;
+}
+
+.main-menu-custom .menu-container .keluar {
+    /* border: 2px solid rgb(183, 228, 114); */
+    background: url("../assets/images/bg-menu-k.png") no-repeat;
+    background-color: rgb(228, 142, 114);
+    background-size: cover;
 }
 
 @media only screen and (min-width: 1420px) {
@@ -264,8 +277,7 @@ body {
 .main-content-custom {
     display: flex;
     align-self: center;
-    align-items: start;
-    /* padding-top: 5%; */
+    align-items: center;
     justify-content: center;
     width: 60%;
     height: 80%;
@@ -279,6 +291,10 @@ body {
     width: 100%;
     /* background-color: red; */
 }
+
+/* .pad-cus-1 {
+    padding-top: 5% !important;
+} */
 
 .play-menu-container .play-menu {
     display: flex;
@@ -336,11 +352,11 @@ body {
     width: 100%;
     height: 100%;
     /* background: rgba(0, 0, 0, 0.8); */
-    background-image: url("../assets/images/bg-nickname.jpg");
+    background-image: url("../assets/images/bg-result.jpg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    border: 4px white solid;
+    border: 4px rgba(255, 255, 255, 0.5) solid;
     border-radius: 18px;
 }
 
@@ -415,15 +431,15 @@ body {
     left: 0;
     height: 100px;
     width: 100%;
-    background-color: rgba(220, 232, 241, 0.5);
+    background-color: rgba(127, 131, 135, 0.5);
     border-radius: 18px 18px 0 0;
 }
 
 .footer-custom span {
-    -webkit-text-stroke: 1px #4c6b54;
+    -webkit-text-stroke: 1px #983428;
     font-weight: 700;
     color: white;
-    font-size: 14px;
+    font-size: 24px;
 }
 
 .footer-custom span:hover {
@@ -432,7 +448,8 @@ body {
 
 .footer-custom .skph-link {
     text-decoration: none;
-    color: #4c6b54;
+    color: #ffffff;
+    font-size: 18px;
 }
 
 /* .......... */
@@ -465,7 +482,8 @@ body {
 }
 
 .nomor-isi-soal {
-    padding: 10px 50px;
+    width: 100%;
+    padding: 10px 80px;
 }
 
 .soal-container .nomor-isi-soal .soal-polos,
@@ -480,12 +498,13 @@ body {
 }
 
 .nomor-isi-soal .nomor-soal {
+    align-self: flex-end;
     padding: 8px 22px;
     border-radius: 100%;
-    border: 2px solid #f4a1a9;
+    border: 2px solid #e7b280;
     font-size: 34px;
-    color: #f4a1a9;
-    background-color: rgba(185, 174, 184, 0.4);
+    color: #e7b280;
+    background-color: rgba(21, 21, 21, 0.4);
 }
 
 .nomor-isi-soal .isi-soal {
@@ -526,7 +545,6 @@ body {
     background-color: white;
     transition: 0.3s;
 }
-
 
 .jawaban-wrap input[type="radio"]:checked + label::before {
     background-color: #d27676;
@@ -622,8 +640,8 @@ body {
     -webkit-user-select: none;
     touch-action: manipulation;
     align-self: center;
-    width: 60%;
-    min-width: 180px;
+    width: 38%;
+    min-width: 80px;
 }
 
 .btn-soal {
@@ -672,6 +690,7 @@ body {
 }
 
 .btn-nm-batal {
+    margin-top: 10px;
     background-color: #983428;
 }
 

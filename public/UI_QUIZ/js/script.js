@@ -55,11 +55,11 @@ document.addEventListener("DOMContentLoaded", function () {
         playQuiz.addEventListener("click", function () {
             playQuiz.style.display = "none";
             leaveQuiz.style.display = "none";
-            const audio = document.querySelector("audio");
-            audio.muted = false;
-            audio.play().catch((error) => {
-                console.log("Autoplay dibatasi oleh browser:", error);
-            });
+            // const audio = document.querySelector("audio");
+            // audio.muted = false;
+            // audio.play().catch((error) => {
+            //     console.log("Autoplay dibatasi oleh browser:", error);
+            // });
 
             blackAreaNickname.style.display = "flex";
             bgMainContent.style.display = "flex";
@@ -79,7 +79,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 blackAreaNickname.style.display = "none";
                 bgMainContent.style.display = "none";
                 nicknameContainer.style.display = "none";
-                mainContentCustom.style.paddingTop = "10%";
+                // mainContentCustom.style.paddingTop = "10%";
                 inputNicknameMurid.value = "";
             }
 

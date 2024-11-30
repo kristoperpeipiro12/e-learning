@@ -32,7 +32,12 @@ li {
     padding: 20px;
     width: 55%;
     height: 70%;
-    background-color: brown;
+    /* background-color: rgba(0, 0, 0, 0.5); */
+    background-color: rgb(220, 217, 217);
+    /* background-image: url("../assets/images/bg-result.jpg"); */
+    background-position: center;
+    background-size: cover;
+
     gap: 12px;
 }
 
@@ -50,7 +55,7 @@ li {
 .username {
     font-size: 34px;
     font-weight: 800;
-    color: rgb(228, 228, 228);
+    color: rgb(150, 150, 150);
 }
 
 .score-display {
@@ -95,17 +100,19 @@ li {
 .btn-selesai {
     margin-top: 25px;
     text-decoration: none;
-    padding: 12px;
+    padding: 12px 16px;
     font-size: 28px;
-    border-radius: 8px;
-    color: white;
-    background-color: #198754;
+    border-radius: 18px;
+    color: #36b57a;
+    border: 1px solid #36b57a;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .btn-selesai:hover {
     transform: scale(1.1); /* Perbesar tombol sedikit */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Tambahkan bayangan */
+    background-color: #36b57a;
+    color: white;
 }
 
 @keyframes pop {

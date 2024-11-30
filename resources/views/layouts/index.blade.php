@@ -28,7 +28,7 @@
         <!-- main content -->
         <section id="main-content-custom" class="main-content-custom">
             <!-- area play-menu -->
-            <div id="play-menu-container" class="play-menu-container">
+            <div id="play-menu-container pad-cus-1" class="play-menu-container">
                 <ul class="play-menu">
                     <li>
                         <a href="#" id="btn-play-quiz" class="fs-icon-custom1"><i
@@ -78,7 +78,7 @@
         <!-- footer -->
         <section class="footer-custom">
             <span>Sistem Multimedia</span>
-            <a id="skph-link" href="" class="skph-link">-</a>
+            <a id="skph-link" href="" class="skph-link">TI - 7A</a>
         </section>
     </div>
 
@@ -87,7 +87,7 @@
 
     <!-- Background (Video) -->
     <video autoplay muted loop id="bg-halloween">
-        <source id="bg-video" src="{{ asset('UI_QUIZ/assets/video/bg-main-murid.mp4') }}" type="video/mp4" />
+        <source id="bg-video" src="{{ asset('UI_QUIZ/assets/video/bg-main-murid2.mp4') }}" type="video/mp4" />
     </video>
 
     <audio loop autoplay muted>

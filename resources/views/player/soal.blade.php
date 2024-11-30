@@ -93,13 +93,13 @@
                 </div>
                 <span class="menu-header">Pause</span>
                 <ul>
-                    <a href="#" id="lanjut-menu">
+                    <a href="#" id="lanjut-menu" class="lanjut">
                         <li>Lanjut</li>
                     </a>
                     <!-- <a href="#" id="pengaturan-menu">
                         <li>Pengaturan</li>
                     </a> -->
-                    <a href="{{ route('home.index') }}" id="keluar-menu">
+                    <a href="{{ route('home.index') }}" id="keluar-menu" class="keluar">
                         <li>Keluar</li>
                     </a>
                 </ul>
@@ -108,7 +108,9 @@
     </div>
 
     <!-- Background (gambar) -->
-    <img id="bg-halloween" src="{{ asset('UI_QUIZ/assets/images/bg-math-exercise-long.png') }}" alt="" />
+    <img id="bg-halloween"
+        src="{{ $mapel == 'mp_1' ? asset('UI_QUIZ/assets/images/bg-math-exercise-long.png') : asset('UI_QUIZ/assets/images/bg-english.png') }}"
+        alt="" />
 
     <!-- Backsound -->
     <!-- <audio src="{{ asset('UI_QUIZ/assets/audio/doodle.mp3') }}" autoplay muted></audio> -->

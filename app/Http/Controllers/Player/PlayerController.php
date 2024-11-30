@@ -68,7 +68,7 @@ class PlayerController extends Controller
         $c = $soal->pilihan_c;
 
         session(['mapel' => $mapel, 'soal_id' => $soal->id_soal]);
-        return view('player.soal', compact('isi_soal', 'nomor', 'a', 'b', 'c', 'gambar', 'video'));
+        return view('player.soal', compact('mapel','isi_soal', 'nomor', 'a', 'b', 'c', 'gambar', 'video'));
     }
 
     public function correction(Request $request)
