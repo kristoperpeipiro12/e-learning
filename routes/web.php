@@ -17,8 +17,8 @@ Route::get('/', [HomeController::class, 'index'])->name('home.index');
 // Login routes
 Route::get('/login', [LoginController::class, 'index'])->name('login');
 Route::post('/login', [LoginController::class, 'login'])->name('login.process');
-Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
+Route::post('/logout', [LoginController::class, 'logout'])->name('logout.post');
 
 
 // Admin routes with auth middleware
