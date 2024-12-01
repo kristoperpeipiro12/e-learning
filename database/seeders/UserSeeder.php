@@ -13,7 +13,7 @@ class UserSeeder extends Seeder
     {
         $userdata = [
             [
-                'username' => 'guru',
+                'username' => 'admin',
                 'password' => Hash::make('1234'),
             ],
         ];

@@ -4,7 +4,9 @@ namespace App\Http\Controllers\Player;
 use App\Http\Controllers\Controller;
 use App\Models\Soal;
 use App\Models\Player;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 
 class PlayerController extends Controller
@@ -105,4 +107,35 @@ class PlayerController extends Controller
     {
         return view('player.result');
     }
+
+ public function getChartData()
+{
+    // Mendapatkan data pemain yang dikelompokkan berdasarkan bulan
+    $data = DB::table('players')
+        ->select(DB::raw('MONTH(created_at) as month, COUNT(*) as player_count'))
+        ->groupBy(DB::raw('MONTH(created_at)'))
+        ->pluck('player_count', 'month'); // Mengembalikan hasil sebagai key-value pair (month => player_count)
+
+    // Inisialisasi bulan Januari hingga Desember
+    $allMonths = [
+        1 => 'January', 2 => 'February', 3 => 'March', 4 => 'April',
+        5 => 'May', 6 => 'June', 7 => 'July', 8 => 'August',
+        9 => 'September', 10 => 'October', 11 => 'November', 12 => 'December'
+    ];
+
+    // Menyusun data labels dan values
+    $labels = [];
+    $values = [];
+
+    foreach ($allMonths as $monthNumber => $monthName) {
+        $labels[] = $monthName; // Nama bulan
+        $values[] = $data[$monthNumber] ?? 0; // Jumlah pemain (default 0 jika tidak ada data)
+    }
+
+    return response()->json([
+        'labels' => $labels,
+        'values' => $values,
+    ]);
+}
+
 }

@@ -80,16 +80,62 @@
 
 
             </div>
-            <div class="tabel-wrapper-custom">
-                <div class="col-lg-12">
-                    <div class="card mb-4">
-                        <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                            <h6 class="m-0 font-weight-bold text-primary">High Score </h6>
-                        </div>
-                        {{-- area chart  --}}
-                    </div>
-                </div>
-            </div>
+         <div class="tabel-wrapper-custom">
+             <div class="col-lg-12">
+                 <div class="card mb-4">
+                     <div class="card-header py-lg-3 d-flex flex-row align-items-center justify-content-between">
+                         <h6 class="m-0 font-weight-bold text-primary">Jumlah Pemain</h6>
+                     </div>
+                     <div class="card-body">
+                         <!-- Menyesuaikan tinggi elemen canvas -->
+                         <canvas id="playerChart" style="max-height: 300px;"></canvas>
+                     </div>
+                 </div>
+             </div>
+         </div>
+
+         
+
         </div>
         <!--Row-->
+
+      <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+      <script>
+            fetch('{{ route("admin.chart.data") }}')// Panggil endpoint '/chart-data' untuk mendapatkan data
+              .then(response => response.json()) // Parse response JSON
+              .then(data => {
+                  const ctx = document.getElementById('playerChart').getContext('2d');
+                  new Chart(ctx, {
+                      type: 'line', // Jenis chart
+                      data: {
+                          labels: data.labels, // Label diambil dari API
+                          datasets: [{
+                              label: 'Jumlah Pemain per Bulan'
+                              , data: data.values, // Data nilai diambil dari API
+                              backgroundColor: 'rgba(54, 162, 235, 0.2)', // Warna latar dataset
+                              borderColor: 'rgba(54, 162, 235, 1)', // Warna garis dataset
+                              borderWidth: 2
+                              , tension: 0.4 // Membuat garis menjadi melengkung
+                          }]
+                      }
+                      , options: {
+                          responsive: true
+                          , plugins: {
+                              legend: {
+                                  position: 'top' // Posisi legenda di atas chart
+                              }
+                          }
+                          , scales: {
+                              y: {
+                                  beginAtZero: true // Skala dimulai dari nol
+                              }
+                          }
+                      }
+                  });
+              });
+
+      </script>
+
+
+
     @endsection

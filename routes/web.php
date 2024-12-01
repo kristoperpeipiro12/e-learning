@@ -6,7 +6,7 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\admin\HomeController as adminHomeController;
 use App\Http\Controllers\admin\InggrisController;
 use App\Http\Controllers\admin\MatematikaController;
-use App\Http\Controllers\Murid\HomeController as MuridHomeController;
+// use App\Http\Controllers\Murid\HomeController as MuridHomeController;
 use App\Http\Controllers\Player\PlayerController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
@@ -37,7 +37,17 @@ Route::prefix('admin')->middleware('auth')->group(function () {
     Route::get('/eng/create', [InggrisController::class, 'create'])->name('admin.inggris.create');
     Route::post('/eng/store', [InggrisController::class, 'store'])->name('inggris.store');
     Route::delete('/eng/{id}', [InggrisController::class, 'delete'])->name('inggris.delete');
+
+    // Routes for chart
+    Route::get('/chart', function () {
+        return view('chart');
+    })->name('admin.chart');
+
+    Route::get('/chart-data', [PlayerController::class, 'getChartData'])->name('admin.chart.data');
+
 });
+
+
 
 // Murid Route
 Route::post('/save-name', [HomeController::class, 'saveName'])->name('home.saveName');

@@ -13,9 +13,11 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         $this->call([
+            
             MapelSeeder::class,
             PlayerSeeder::class,
             SoalSeeder::class,
+
         ]);
     }
 }

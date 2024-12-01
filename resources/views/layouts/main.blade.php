@@ -50,12 +50,15 @@
     <script src="{{ asset('sistem-mulmet/template/RuangAdmin/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ asset('sistem-mulmet/template/RuangAdmin/vendor/jquery-easing/jquery.easing.min.js') }}"></script>
     <script src="{{ asset('sistem-mulmet/template/RuangAdmin/js/ruang-admin.min.js') }}"></script>
-    <script src="{{ asset('sistem-mulmet/template/RuangAdmin/vendor/chart.js/Chart.min.js') }}"></script>
+    {{-- <script src="{{ asset('sistem-mulmet/template/RuangAdmin/vendor/chart.js/Chart.min.js') }}"></script> --}}
     <script src="{{ asset('sistem-mulmet/template/RuangAdmin/js/demo/chart-area-demo.js') }}"></script>
     <script src="{{ asset('sistem-mulmet/template/RuangAdmin/vendor/datatables/jquery.dataTables.min.js') }}"></script>
     <script src="{{ asset('sistem-mulmet/template/RuangAdmin/vendor/datatables/dataTables.bootstrap4.min.js') }}"></script>
     <script src="{{ asset('UI_QUIZ/js/script-mapel.js') }}"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+
+
 
 
     <!-- Page level custom scripts -->
