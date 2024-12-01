@@ -28,7 +28,7 @@
         <!-- main content -->
         <section id="main-content-custom" class="main-content-custom">
             <!-- area play-menu -->
-            <div id="play-menu-container" class="play-menu-container">
+            <div id="play-menu-container pad-cus-1" class="play-menu-container">
                 <ul class="play-menu">
                     <li>
                         <a href="#" id="btn-play-quiz" class="fs-icon-custom1"><i
@@ -56,7 +56,7 @@
                 @endif
 
                 <!-- input name to session -->
-                <form action="{{ route('home.saveName') }}" method="post">
+                <form class="form-wrap" action="{{ route('home.saveName') }}" method="post">
                     @csrf
                     <input type="text" name="name" id="input-nickname-murid" class="input-nickname fade-in"
                         placeholder="Klik disini" />
@@ -77,8 +77,8 @@
 
         <!-- footer -->
         <section class="footer-custom">
-            <span>copyright @ 2024</span>
-            <a id="skph-link" href="" class="skph-link">Sekolah Kristen Pelita Hati</a>
+            <span>Sistem Multimedia</span>
+            <a id="skph-link" href="" class="skph-link">TI - 7A</a>
         </section>
     </div>
 
@@ -87,7 +87,7 @@
 
     <!-- Background (Video) -->
     <video autoplay muted loop id="bg-halloween">
-        <source id="bg-video" src="{{ asset('UI_QUIZ/assets/video/bg-main-murid.mp4') }}" type="video/mp4" />
+        <source id="bg-video" src="{{ asset('UI_QUIZ/assets/video/bg-main-murid2.mp4') }}" type="video/mp4" />
     </video>
 
     <audio loop autoplay muted>

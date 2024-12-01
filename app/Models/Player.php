@@ -16,6 +16,7 @@ class Player extends Model
     protected $keyType = 'string';
 
     protected $fillable = [
+        'id_player',
         'id_mapel',
         'username',
         'score'

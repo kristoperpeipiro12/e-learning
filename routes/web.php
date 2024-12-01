@@ -21,7 +21,7 @@ Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout.post');
 
 
-// Admin routes with auth middleware
+
 Route::prefix('admin')->middleware('auth')->group(function () {
     Route::get('/', [AdminHomeController::class, 'index'])->name('admin');
 
@@ -47,6 +47,7 @@ Route::prefix('player')->middleware('checkUserName')->group(function () {
     Route::get('/mapel', [PlayerController::class, 'index'])->name('player.mapel');
     Route::get('/soal/{mapel}', [PlayerController::class, 'play'])->name('player.play');
     Route::post('/soal/correction', [PlayerController::class, 'correction'])->name('soal.correction');
+    Route::post('/soal/store', [PlayerController::class, 'store'])->name('soal.result');
 });
 
 //rout di bawah merupakan route lama

@@ -9,57 +9,38 @@
     <link rel="stylesheet" href="{{ asset('UI_QUIZ/assets/icons/bootstrap-icons/font/bootstrap-icons.min.css') }}" />
     <link rel="stylesheet" href="{{ asset('UI_QUIZ/css/result.css') }}" />
     <link rel="stylesheet" href="{{ asset('UI_QUIZ/fontawesome-6.6.0/css/all.min.css') }}" />
-    <style>
-    .content-container {
-        text-align: center;
-    }
 
-    .card-result {
-        background: white;
-        padding: 20px;
-        border-radius: 10px;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    }
-
-    .score-display {
-        font-size: 2rem;
-        font-weight: bold;
-        color: #333;
-        margin: 20px 0;
-        animation: pop 0.5s ease-in-out;
-    }
-
-    @keyframes pop {
-        0% {
-            transform: scale(1);
-        }
-
-        50% {
-            transform: scale(1.5);
-        }
-
-        100% {
-            transform: scale(1);
-        }
-    }
-    </style>
 </head>
 
 <body>
     <div class="content-container">
-        <div class="card-result">
+        <div class="card-result" id="card">
             <h1>Hasil Quiz</h1>
-            <div class="score-display" id="score">{{ $nilai_akhir }}</div>
-            <ul>
-                <li>Nickname Pemain: <span id="nilaiAkhir">{{ $username }}</span></li>
-                <li>Nilai Akhir: <span id="nilaiAkhir">{{ $nilai_akhir }}</span></li>
-                <li>Jumlah Benar: {{ $jumlah_benar }}</li>
-                <li>Jumlah Salah: {{ $jumlah_soal - $jumlah_benar }}</li>
-            </ul>
+            <div class="score-display" id="score">{{ $player->score }}</div>
+            <span class="username">{{ $player->username }}</span>
+            <div class="wrap-tf">
+                <span>Benar : {{ $jumlah_benar }}</span>
+                <span>Salah : {{ $jumlah_soal - $jumlah_benar }}</span>
+            </div>
+            <a href="{{ route('home.index') }}" class="btn-selesai">Selesai</a>
+
         </div>
+        <div class="shdw-card"></div>
     </div>
 
+    <video autoplay muted id="gs-wrap">
+        <source id="gs-vid" src="{{ asset('UI_QUIZ/assets/video/bg-result.mp4') }}" type="video/mp4" />
+    </video>
+
+    <!-- Backsound -->
+    <audio src="{{ asset('UI_QUIZ/assets/audio/doodle.mp3') }}" autoplay muted></audio>
+
+
     <script>
+    window.addEventListener("load", () => {
+        const audio = document.querySelector("audio");
+        audio.muted = false;
+    });
     // Ambil nilai akhir dari server (nilai_akhir)
     const finalScore = {
         {
@@ -67,6 +48,7 @@
         }
     };
     const scoreElement = document.getElementById('score');
+    const cardResult = document.getElementById('card');
     let currentScore = 0;
 
     // Efek berhitung dari 0 ke nilai akhir
@@ -77,8 +59,10 @@
                 scoreElement.textContent = currentScore;
                 // Animasi pop setiap angka berubah
                 scoreElement.style.animation = 'none';
+                cardResult.style.animation = 'none';
                 setTimeout(() => {
                     scoreElement.style.animation = '';
+                    cardResult.style.animation = '';
                 }, 50);
             } else {
                 clearInterval(interval);
