@@ -105,4 +105,88 @@ document.addEventListener("DOMContentLoaded", function () {
         // bgPause.style.height = tinggiMenuPause;
         // bgPause.style.width = lebarMenuPause;
     }
+
+    //Text to Speech
+    const togglePlayButton = document.getElementById("toggle-play");
+    if (togglePlayButton) {
+        const soalContainer = document.getElementById("soal-container");
+        let isPlaying = false;
+        let currentParagraph = 0;
+
+        const isiSoal = soalContainer.getElementsByClassName("isi-soal"); // Variabel Anda
+        const jawabanLabels = soalContainer.querySelectorAll(
+            ".jawaban-wrap label"
+        ); // Semua label jawaban
+
+        let currentWordIndex = 0;
+        togglePlayButton.addEventListener("click", function () {
+            if (!isPlaying) {
+                if (currentParagraph >= isiSoal.length) {
+                    // Reset ke awal jika sudah selesai
+                    currentParagraph = 0;
+                }
+                isPlaying = true;
+                togglePlayButton.innerHTML = `
+            <i class="fa-solid fa-volume-high" id="read-on"></i>
+            Jeda
+            `;
+                play();
+            } else {
+                isPlaying = false;
+                togglePlayButton.innerHTML = `
+            <i class="fa-solid fa-volume-xmark" id="read-off"></i>
+            Baca
+            `;
+                speechSynthesis.cancel();
+            }
+        });
+
+        function play() {
+            if (currentParagraph < isiSoal.length) {
+                const paragraph = isiSoal[currentParagraph];
+                let jawabanText = "";
+                jawabanLabels.forEach((label) => {
+                    jawabanText += label.textContent + " ";
+                });
+
+                const text = paragraph.textContent + " " + jawabanText; // Gabungkan soal dan semua jawaban
+                speak(text);
+            } else {
+                isPlaying = false;
+                togglePlayButton.innerHTML = `
+            <i class="fa-solid fa-volume-xmark" id="read-off"></i>
+            Baca
+            `;
+            }
+        }
+
+        function speak(text) {
+            const words = text.split(" ");
+            const rate = 1.2; // Atur kecepatan (contoh: 1.0 = 1x lebih cepat)
+
+            function speakWord() {
+                if (currentWordIndex < words.length) {
+                    const word = words[currentWordIndex];
+                    const utterance = new SpeechSynthesisUtterance(word);
+                    utterance.lang = "id-ID"; // Atur bahasa yang sesuai
+                    utterance.rate = rate; // Atur kecepatan baca
+                    speechSynthesis.speak(utterance);
+
+                    utterance.onend = function () {
+                        currentWordIndex++;
+                        speakWord();
+                    };
+                } else {
+                    // Setelah selesai membaca kata-kata, lanjutkan ke paragraf berikutnya
+                    currentWordIndex = 0;
+                    currentParagraph++;
+                    setTimeout(play, 500); // Jeda 500ms sebelum membaca paragraf berikutnya
+                }
+            }
+
+            speakWord();
+        }
+    }
+
+    // .........
 });

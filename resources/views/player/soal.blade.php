@@ -27,12 +27,18 @@
 
         <!-- soal -->
         <section id="main-content-custom" class="main-content-custom content-size-custom">
-            <div class="soal-container">
+            <div id="soal-container" class="soal-container">
                 <div class="nomor-isi-soal">
                     <!-- soal polos -->
-                    <span id="nomor-soal" class="nomor-soal">{{ $nomor }}</span>
+                    <div class="con-nomor-btn">
+                        <span id="nomor-soal" class="nomor-soal">{{ $nomor }}</span>
+                        <button id="toggle-play">
+                            <i class="fa-solid fa-volume-xmark" id="read-off"></i>
+                            Baca
+                        </button>
+                    </div>
                     <div class="soal-polos">
-                        <span id="isi-soal" class="isi-soal">{{ $isi_soal }} ...</span>
+                        <span id="isi-soal" class="isi-soal">{{ $isi_soal }}</span>
                     </div>
 
                     <!-- soal gambar -->

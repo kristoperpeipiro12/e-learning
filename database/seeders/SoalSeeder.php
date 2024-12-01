@@ -27,16 +27,16 @@ class SoalSeeder extends Seeder
 
         $tampung = [
             'soal_mtk' => [
-                '1 + 1',
-                '2 + 10',
-                '3 + 1',
-                '8 + 2'
+                '1 + 1 =',
+                '2 + 10 =',
+                '3 + 1 =',
+                '8 + 2 ='
             ],
             'soal_ing' => [
-                'Bahasa Indonesia dari Kelapa adalah',
-                'Bahasa Indonesia dari Kucing adalah',
-                'Bahasa Indonesia dari Anjing adalah',
-                'Bahasa Indonesia dari Ayah adalah'
+                'Bahasa Inggris dari Kelapa adalah',
+                'Bahasa Inggris dari Kucing adalah',
+                'Bahasa Inggris dari Anjing adalah',
+                'Bahasa Inggris dari Ayah adalah'
             ],
             'jwb_mtk_a' => [
                 '1',
