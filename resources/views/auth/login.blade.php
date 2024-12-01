@@ -27,7 +27,7 @@
             </div>
 
             <button type="submit">Masuk </button>
-           <a href="javascript:history.back()" style="color: black;">Kembali</a>
+           <a href="{{ route('home.index') }}" style="color: black;">Kembali</a>
 
             {{-- <button type="button" onclick="history.back()">Kembali</button>  --}}
         </form>

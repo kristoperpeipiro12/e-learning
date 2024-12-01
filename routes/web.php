@@ -14,19 +14,16 @@ use App\Http\Controllers\HomeController;
 Route::get('/', [HomeController::class, 'index'])->name('home.index');
 
 
+// Login routes
 Route::get('/login', [LoginController::class, 'index'])->name('login');
 Route::post('/login', [LoginController::class, 'login'])->name('login.process');
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 
-// Route Admin
-// Route::prefix('admin')->group(function () {
-//     Route::get('/', [AdminHomeController::class, 'index'])->name('admin');
-// });
 
-// Route admin
-Route::prefix('admin')->group(function () {
-    Route::get('/', [adminHomeController::class, 'index'])->name('admin');
+// Admin routes with auth middleware
+Route::prefix('admin')->middleware('auth')->group(function () {
+    Route::get('/', [AdminHomeController::class, 'index'])->name('admin');
 
     Route::get('/mapel', [MapelController::class, 'index'])->name('admin.mapel');
     Route::post('/mapel/store', [MapelController::class, 'store'])->name('mapel.store');
@@ -40,7 +37,6 @@ Route::prefix('admin')->group(function () {
     Route::get('/eng/create', [InggrisController::class, 'create'])->name('admin.inggris.create');
     Route::post('/eng/store', [InggrisController::class, 'store'])->name('inggris.store');
     Route::delete('/eng/{id}', [InggrisController::class, 'delete'])->name('inggris.delete');
-
 });
 
 // Murid Route
