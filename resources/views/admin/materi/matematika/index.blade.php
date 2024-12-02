@@ -45,7 +45,7 @@
                     <tbody>
                         @forelse ($listSoal as $soal)
                         <tr>
-                            <td>{{ $number = $number + 1 }}</td>
+                            <td>{{ $loop->iteration }}</td>
                             <td>{{ $soal->soal }}</td>
                             <td>
                                 @if ($soal->gambar_soal)
@@ -68,25 +68,55 @@
                             <td>{{ $soal->pilihan_b }}</td>
                             <td>{{ $soal->pilihan_c }}</td>
                             <td>{{ $soal->kunci_jawaban }}</td>
-                            <form action="{{ route('matematika.delete', $soal->id_soal) }}" method="post">
-                                @csrf
-                                @method('DELETE')
-                                <td>
-                                    <button type="submit" class="btn btn-danger py-1 px-2">
-                                        <i class="far fa-trash-alt"></i>
-                                    </button>
-                                </td>
-                            </form>
+                            <td>
+                                <!-- Tombol Delete -->
+                                <button type="button" class="btn btn-danger py-1 px-2" data-toggle="modal" data-target="#deleteModal" onclick="setDeleteAction('{{ route('matematika.delete', $soal->id_soal) }}')">
+                                    <i class="far fa-trash-alt"></i>
+                                </button>
+                            </td>
                         </tr>
-
-
                         @empty
-                        <div class="alert alert-danger">
-                            Data Soal belum Tersedia.
-                        </div>
+                        <tr>
+                            <td colspan="9" class="text-center">Data Soal belum tersedia.</td>
+                        </tr>
                         @endforelse
                     </tbody>
                 </table>
+
+                <!-- Modal Delete -->
+                <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="deleteModalLabel">Konfirmasi Hapus Soal</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <p>Apakah Anda yakin ingin menghapus soal ini?</p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Batal</button>
+                                <form id="deleteForm" action="" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-danger">Hapus</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <script>
+                    // Script untuk mengatur action form di modal delete
+                    function setDeleteAction(url) {
+                        document.getElementById('deleteForm').action = url;
+                    }
+
+                </script>
+
+
             </div>
         </div>
     </div>

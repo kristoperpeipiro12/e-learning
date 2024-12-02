@@ -34,45 +34,80 @@
                         </thead>
                         <tbody>
                             @forelse ($listSoal as $soal)
-                                <tr>
-                                    <td>{{ $number = $number + 1 }}</td>
-                                    <td>{{ $soal->soal }}</td>
-                                    <td>
-                                        @if ($soal->gambar_soal)
-                                        <img src="{{ asset('storage/' . $soal->gambar_soal) }}" alt="Gambar Soal" style="max-width: 100px; height: auto;">
-                                        @else
-                                        -
-                                        @endif
-                                    </td>
-                                    <td>
-                                        @if ($soal->video_soal)
-                                        <video width="150" controls>
-                                            <source src="{{ asset('storage/' . $soal->video_soal) }}" type="video/{{ pathinfo($soal->video_soal, PATHINFO_EXTENSION) }}">
-                                            Browser Anda tidak mendukung video.
-                                        </video>
-                                        @else
-                                        -
-                                        @endif
-                                    </td>
-                                    <td>{{ $soal->pilihan_a }}</td>
-                                    <td>{{ $soal->pilihan_b }}</td>
-                                    <td>{{ $soal->pilihan_c }}</td>
-                                    <td>{{ $soal->kunci_jawaban }}</td>
-                                    <form action="{{ route('inggris.delete', $soal->id_soal) }}" method="post">
-                                        @csrf
-                                        @method('DELETE')
-                                        <td><button type="submit" class="btn btn-danger py-1 px-2"><i
-                                                    class="far fa-trash-alt"></i></button>
-                                        </td>
-                                    </form>
-                                </tr>
+                            <tr>
+                                <td>{{ $number = $number + 1 }}</td>
+                                <td>{{ $soal->soal }}</td>
+                                <td>
+                                    @if ($soal->gambar_soal)
+                                    <img src="{{ asset('storage/' . $soal->gambar_soal) }}" alt="Gambar Soal" style="max-width: 100px; height: auto;">
+                                    @else
+                                    -
+                                    @endif
+                                </td>
+                                <td>
+                                    @if ($soal->video_soal)
+                                    <video width="150" controls>
+                                        <source src="{{ asset('storage/' . $soal->video_soal) }}" type="video/{{ pathinfo($soal->video_soal, PATHINFO_EXTENSION) }}">
+                                        Browser Anda tidak mendukung video.
+                                    </video>
+                                    @else
+                                    -
+                                    @endif
+                                </td>
+                                <td>{{ $soal->pilihan_a }}</td>
+                                <td>{{ $soal->pilihan_b }}</td>
+                                <td>{{ $soal->pilihan_c }}</td>
+                                <td>{{ $soal->kunci_jawaban }}</td>
+                                <td>
+                                    <!-- Trigger Modal Button -->
+                                    <button type="button" class="btn btn-danger py-1 px-2" data-toggle="modal" data-target="#deleteModal" data-id="{{ $soal->id_soal }}">
+                                        <i class="far fa-trash-alt"></i>
+                                    </button>
+                                </td>
+                            </tr>
                             @empty
-                                <div class="alert alert-danger">
-                                    Data Soal belum Tersedia.
-                                </div>
+                            <div class="alert alert-danger">
+                                Data Soal belum Tersedia.
+                            </div>
                             @endforelse
                         </tbody>
                     </table>
+
+                    <!-- Delete Confirmation Modal -->
+                    <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="deleteModalLabel">Konfirmasi Hapus Soal</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    Apakah Anda yakin ingin menghapus soal ini?
+                                </div>
+                                <div class="modal-footer">
+                                    <form id="deleteForm" action="" method="POST">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+                                        <button type="submit" class="btn btn-danger">Hapus</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- JavaScript to update the form action dynamically -->
+                    <script>
+                        $('#deleteModal').on('show.bs.modal', function(event) {
+                            var button = $(event.relatedTarget); // Button that triggered the modal
+                            var soalId = button.data('id'); // Extract info from data-* attributes
+                            var actionUrl = '/inggris/delete/' + soalId; // Set the correct delete URL
+                            var form = $(this).find('#deleteForm');
+                            form.attr('action', actionUrl); // Update the form action
+                        });
+
+                    </script>
                 </div>
             </div>
         </div>

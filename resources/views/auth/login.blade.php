@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>~Login Form~</title>
+    <title>Login</title>
     <link rel="stylesheet" href="{{ asset('Tlogin/style.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
@@ -27,7 +27,7 @@
             </div>
 
             <button type="submit">Masuk </button>
-           <a href="{{ route('home.index') }}" style="color: black;">Kembali</a>
+           <a href="{{ route('home.index') }}" style="color: black; margin-top:10px;">Kembali</a>
 
             {{-- <button type="button" onclick="history.back()">Kembali</button>  --}}
         </form>
