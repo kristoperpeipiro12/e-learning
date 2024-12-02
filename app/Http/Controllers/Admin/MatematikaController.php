@@ -39,23 +39,22 @@ class MatematikaController extends Controller
 
         $id_soal = Soal::count() + 1;
 
-$gambarPath = null;
-$videoPath  = null;
+        $gambarPath = null;
+        $videoPath  = null;
 
 // Handle upload file gambar (jika ada)
-if ($request->hasFile('gambar_soal')) {
-    $gambarFile = $request->file('gambar_soal');
-    $gambarName = time() . '_' . uniqid() . '.' . $gambarFile->getClientOriginalExtension();
-    $gambarPath = $gambarFile->storeAs('soal/gambar', $gambarName, 'public');
-}
+        if ($request->hasFile('gambar_soal')) {
+            $gambarFile = $request->file('gambar_soal');
+            $gambarName = time() . '_' . uniqid() . '.' . $gambarFile->getClientOriginalExtension();
+            $gambarPath = $gambarFile->storeAs('soal/gambar', $gambarName, 'public');
+        }
 
 // Handle upload file video (jika ada)
-if ($request->hasFile('video_soal')) {
-    $videoFile = $request->file('video_soal');
-    $videoName = time() . '_' . uniqid() . '.' . $videoFile->getClientOriginalExtension();
-    $videoPath = $videoFile->storeAs('soal/video', $videoName, 'public');
-}
-
+        if ($request->hasFile('video_soal')) {
+            $videoFile = $request->file('video_soal');
+            $videoName = time() . '_' . uniqid() . '.' . $videoFile->getClientOriginalExtension();
+            $videoPath = $videoFile->storeAs('soal/video', $videoName, 'public');
+        }
 
         Soal::create([
             'id_soal'       => $id_soal,
